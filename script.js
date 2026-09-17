@@ -1,77 +1,65 @@
-// FONEX — Premium Interactions
-
 const hero = document.querySelector(".hero");
 const heroContent = document.querySelector(".hero-content");
-const lookbookImages = document.querySelectorAll(".lookbook-image");
-const productCards = document.querySelectorAll(".product-card");
+const products = document.querySelectorAll(".product");
+const lookbookItems = document.querySelectorAll(".lookbook-item");
 
-// Sayfa açılış animasyonu
+
+// SAYFA AÇILIŞI
+
 window.addEventListener("load", () => {
+
     heroContent.style.opacity = "0";
-    heroContent.style.transform = "translateY(35px)";
+    heroContent.style.transform = "translateY(30px)";
 
     setTimeout(() => {
+
         heroContent.style.transition =
-            "opacity 1.2s ease, transform 1.2s cubic-bezier(0.2, 0.65, 0.25, 1)";
+            "opacity 1.4s ease, transform 1.4s cubic-bezier(.2,.65,.25,1)";
 
         heroContent.style.opacity = "1";
         heroContent.style.transform = "translateY(0)";
-    }, 200);
+
+    }, 150);
+
 });
 
 
-// Hero — çok hafif mouse hareketi
-hero.addEventListener("mousemove", (event) => {
+// HERO HAFİF PARALAKS
 
-    const x =
-        (event.clientX / window.innerWidth - 0.5) * 5;
+if (hero) {
 
-    const y =
-        (event.clientY / window.innerHeight - 0.5) * 5;
+    hero.addEventListener("mousemove", (event) => {
 
-    hero.style.backgroundPosition =
-        `calc(50% + ${x}px) calc(50% + ${y}px)`;
-});
+        const x =
+            (event.clientX / window.innerWidth - 0.5) * 8;
 
+        const y =
+            (event.clientY / window.innerHeight - 0.5) * 8;
 
-// Mouse hero'dan çıkınca merkeze dön
-hero.addEventListener("mouseleave", () => {
-    hero.style.transition = "background-position 0.8s ease";
-    hero.style.backgroundPosition = "center";
-});
+        hero.style.backgroundPosition =
+            `calc(50% + ${x}px) calc(50% + ${y}px)`;
 
-
-// Scroll — Lookbook görsellerine hafif hareket
-window.addEventListener("scroll", () => {
-
-    const windowHeight = window.innerHeight;
-
-    lookbookImages.forEach((image) => {
-
-        const rect = image.getBoundingClientRect();
-
-        const center =
-            rect.top + rect.height / 2;
-
-        const distance =
-            (center - windowHeight / 2) / windowHeight;
-
-        const movement =
-            Math.max(-18, Math.min(18, distance * -18));
-
-        image.querySelector("img").style.transform =
-            `scale(1.02) translateY(${movement}px)`;
     });
 
-});
+    hero.addEventListener("mouseleave", () => {
+
+        hero.style.transition =
+            "background-position 1s ease";
+
+        hero.style.backgroundPosition = "center";
+
+    });
+
+}
 
 
-// Ürün kartları — mouse hareketine çok hafif tepki
-productCards.forEach((card) => {
+// ÜRÜNLER — MOUSE HAREKETİ
 
-    card.addEventListener("mousemove", (event) => {
+products.forEach((product) => {
 
-        const rect = card.getBoundingClientRect();
+    product.addEventListener("mousemove", (event) => {
+
+        const rect = product.getBoundingClientRect();
 
         const x =
             (event.clientX - rect.left) / rect.width - 0.5;
@@ -79,17 +67,69 @@ productCards.forEach((card) => {
         const y =
             (event.clientY - rect.top) / rect.height - 0.5;
 
-        card.style.transform =
-            `translate(${x * 3}px, ${y * 3}px)`;
+        product.style.transform =
+            `translate(${x * 2}px, ${y * 2}px)`;
+
     });
 
-    card.addEventListener("mouseleave", () => {
+    product.addEventListener("mouseleave", () => {
 
-        card.style.transition =
-            "transform 0.6s cubic-bezier(0.2, 0.65, 0.25, 1)";
+        product.style.transition =
+            "transform .7s cubic-bezier(.2,.65,.25,1)";
 
-        card.style.transform =
+        product.style.transform =
             "translate(0, 0)";
+
+    });
+
+});
+
+
+// LOOKBOOK — SCROLL HAREKETİ
+
+function animateLookbook() {
+
+    const screenHeight = window.innerHeight;
+
+    lookbookItems.forEach((item) => {
+
+        const image = item.querySelector("img");
+
+        if (!image) return;
+
+        const rect = item.getBoundingClientRect();
+
+        const distance =
+            (rect.top + rect.height / 2 - screenHeight / 2)
+            / screenHeight;
+
+        const movement =
+            Math.max(-15, Math.min(15, distance * -15));
+
+        image.style.transform =
+            `scale(1.025) translateY(${movement}px)`;
+
+    });
+
+}
+
+window.addEventListener("scroll", animateLookbook);
+
+animateLookbook();
+
+
+// MENÜ TIKLAMALARI
+
+document.querySelectorAll("nav a").forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+        document.body.style.cursor = "wait";
+
+        setTimeout(() => {
+            document.body.style.cursor = "default";
+        }, 500);
+
     });
 
 });
