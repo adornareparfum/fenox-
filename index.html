@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#080808">
 <title>FONEX — Form Your Identity</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
 *{
     margin:0;
     padding:0;
@@ -17,15 +15,14 @@
 
 html{
     scroll-behavior:smooth;
-    background:#090909;
+    background:#080808;
 }
 
 body{
-    background:#090909;
-    color:#f4f4f0;
-    font-family:Inter,Arial,sans-serif;
+    background:#080808;
+    color:#f5f5f3;
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
-    cursor:none;
 }
 
 a{
@@ -37,95 +34,45 @@ button{
     font:inherit;
 }
 
-/* CURSOR */
-
-.cursor{
-    position:fixed;
-    width:12px;
-    height:12px;
-    border:1px solid rgba(255,255,255,.8);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:9999;
-    transform:translate(-50%,-50%);
-    transition:
-        width .25s ease,
-        height .25s ease,
-        background .25s ease;
-    mix-blend-mode:difference;
-}
-
-.cursor-text{
-    position:fixed;
-    pointer-events:none;
-    z-index:10000;
-    transform:translate(-50%,-50%);
-    font-size:9px;
-    letter-spacing:2px;
-    opacity:0;
-    transition:opacity .2s;
-}
-
 /* INTRO */
 
 .intro{
     position:fixed;
     inset:0;
-    background:#090909;
-    z-index:10001;
+    background:#080808;
+    z-index:9999;
     display:flex;
     align-items:center;
     justify-content:center;
-    animation:introOut 1s 1.8s forwards;
+    animation:introHide 1s ease 1.5s forwards;
 }
 
-.intro-logo{
-    font-size:clamp(50px,12vw,150px);
-    font-weight:600;
-    letter-spacing:-7px;
-    animation:introLogo 1.5s ease forwards;
+.intro h1{
+    font-size:clamp(60px,12vw,150px);
+    letter-spacing:-8px;
+    font-weight:500;
+    animation:introLogo 1.4s ease;
 }
 
 @keyframes introLogo{
-    0%{
+    from{
         opacity:0;
-        transform:scale(.94);
-        letter-spacing:-15px;
+        transform:scale(.9);
+        letter-spacing:-20px;
     }
-    50%{
+    to{
         opacity:1;
-    }
-    100%{
         transform:scale(1);
-        letter-spacing:-7px;
+        letter-spacing:-8px;
     }
 }
 
-@keyframes introOut{
+@keyframes introHide{
     to{
         opacity:0;
         visibility:hidden;
         pointer-events:none;
     }
-}
-
-/* PROGRESS */
-
-.progress{
-    position:fixed;
-    right:20px;
-    top:50%;
-    width:2px;
-    height:90px;
-    background:rgba(255,255,255,.12);
-    z-index:900;
-    transform:translateY(-50%);
-}
-
-.progress-bar{
-    width:100%;
-    height:0%;
-    background:#fff;
 }
 
 /* HEADER */
@@ -135,16 +82,16 @@ header{
     top:0;
     left:0;
     width:100%;
-    padding:25px 35px;
+    padding:24px 35px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    z-index:800;
+    z-index:1000;
     mix-blend-mode:difference;
 }
 
 .logo{
-    font-size:22px;
+    font-size:23px;
     font-weight:600;
     letter-spacing:-1px;
 }
@@ -155,9 +102,9 @@ nav{
 }
 
 nav a{
-    font-size:11px;
-    letter-spacing:2px;
+    font-size:10px;
     text-transform:uppercase;
+    letter-spacing:2px;
     position:relative;
 }
 
@@ -168,7 +115,7 @@ nav a:after{
     bottom:-6px;
     width:0;
     height:1px;
-    background:#fff;
+    background:white;
     transition:.3s;
 }
 
@@ -180,7 +127,7 @@ nav a:hover:after{
 
 .hero{
     height:100vh;
-    min-height:700px;
+    min-height:650px;
     position:relative;
     overflow:hidden;
     display:flex;
@@ -188,51 +135,47 @@ nav a:hover:after{
     padding:45px;
 }
 
-.hero-bg{
+.hero-image{
     position:absolute;
-    inset:-7%;
-    background:
-        radial-gradient(circle at 72% 30%,#555 0%,#202020 20%,#101010 45%,#050505 75%);
-    transform:scale(1.05);
+    inset:-5%;
+    width:110%;
+    height:110%;
+    object-fit:cover;
+    filter:brightness(.48);
+    transform:scale(1.04);
+    transition:transform 1s ease;
 }
 
-.hero-bg:before{
-    content:"";
+.hero-overlay{
     position:absolute;
     inset:0;
     background:
-        linear-gradient(115deg,transparent 20%,rgba(255,255,255,.08),transparent 65%);
-    animation:heroLight 8s infinite alternate ease-in-out;
-}
-
-@keyframes heroLight{
-    from{
-        transform:translateX(-15%);
-    }
-    to{
-        transform:translateX(15%);
-    }
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.15) 40%,
+            rgba(0,0,0,.85)
+        );
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:1000px;
+    max-width:1100px;
 }
 
-.hero-kicker{
+.kicker{
     font-size:10px;
     letter-spacing:4px;
-    margin-bottom:20px;
-    opacity:.6;
+    margin-bottom:25px;
+    opacity:.7;
 }
 
 .hero h1{
-    font-size:clamp(58px,10vw,160px);
-    line-height:.82;
+    font-size:clamp(60px,10vw,155px);
+    line-height:.8;
     letter-spacing:-8px;
     font-weight:500;
-    max-width:1100px;
 }
 
 .hero-bottom{
@@ -240,79 +183,79 @@ nav a:hover:after{
     justify-content:space-between;
     align-items:flex-end;
     margin-top:45px;
-    gap:30px;
+    gap:40px;
 }
 
-.hero-description{
-    max-width:330px;
+.hero-text{
+    max-width:350px;
     font-size:13px;
     line-height:1.7;
-    color:#aaa;
+    color:#bbb;
 }
 
-.hero-btn{
-    border:1px solid rgba(255,255,255,.5);
+.hero-button{
+    border:1px solid rgba(255,255,255,.6);
     padding:15px 24px;
     font-size:10px;
     letter-spacing:2px;
     transition:.3s;
 }
 
-.hero-btn:hover{
-    background:#fff;
+.hero-button:hover{
+    background:white;
     color:#000;
 }
 
 /* MARQUEE */
 
 .marquee{
-    overflow:hidden;
     border-top:1px solid #222;
     border-bottom:1px solid #222;
-    padding:22px 0;
+    overflow:hidden;
     white-space:nowrap;
+    padding:22px 0;
 }
 
 .marquee-track{
     display:inline-flex;
-    animation:marquee 20s linear infinite;
+    animation:moveText 22s linear infinite;
 }
 
 .marquee span{
-    font-size:13px;
+    margin-right:65px;
+    font-size:12px;
     letter-spacing:5px;
-    margin-right:60px;
 }
 
-@keyframes marquee{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
+@keyframes moveText{
+    to{
+        transform:translateX(-50%);
+    }
 }
 
-/* SECTION */
+/* GENERAL */
 
 .section{
-    padding:150px 45px;
+    padding:140px 45px;
 }
 
 .section-head{
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-    margin-bottom:60px;
+    margin-bottom:55px;
+}
+
+.section-title{
+    font-size:clamp(48px,7vw,105px);
+    font-weight:400;
+    letter-spacing:-6px;
 }
 
 .section-number{
     font-size:10px;
     color:#777;
-    letter-spacing:2px;
-}
-
-.section-title{
-    font-size:clamp(40px,7vw,100px);
-    font-weight:400;
-    letter-spacing:-5px;
-    line-height:.9;
+    letter-spacing:3px;
 }
 
 /* PRODUCTS */
@@ -320,76 +263,46 @@ nav a:hover:after{
 .products{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:2px;
+    gap:3px;
 }
 
 .product{
     position:relative;
-    min-height:620px;
+    height:650px;
     overflow:hidden;
-    background:#151515;
+    background:#181818;
+    cursor:pointer;
 }
 
-.product-visual{
+.product img{
     position:absolute;
     inset:0;
-    transition:transform .7s cubic-bezier(.2,.7,.2,1);
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1),
+        filter .5s ease;
 }
 
-.product:nth-child(1) .product-visual{
-    background:
-        linear-gradient(135deg,#191919,#555,#111);
+.product:hover img{
+    transform:scale(1.08);
+    filter:brightness(.78);
 }
 
-.product:nth-child(2) .product-visual{
-    background:
-        linear-gradient(120deg,#090909,#282828,#777);
-}
-
-.product:nth-child(3) .product-visual{
-    background:
-        linear-gradient(150deg,#5b5b5b,#171717,#090909);
-}
-
-.product:nth-child(4) .product-visual{
-    background:
-        linear-gradient(125deg,#101010,#343434,#0b0b0b);
-}
-
-.product:nth-child(5) .product-visual{
-    background:
-        linear-gradient(150deg,#444,#111,#777);
-}
-
-.product:nth-child(6) .product-visual{
-    background:
-        linear-gradient(110deg,#080808,#464646,#181818);
-}
-
-.product:nth-child(7) .product-visual{
-    background:
-        linear-gradient(140deg,#202020,#666,#090909);
-}
-
-.product:nth-child(8) .product-visual{
-    background:
-        linear-gradient(135deg,#111,#333,#777);
-}
-
-.product-visual:after{
+.product:after{
     content:"";
     position:absolute;
-    width:55%;
-    height:80%;
-    left:25%;
-    top:10%;
-    background:rgba(255,255,255,.06);
-    filter:blur(35px);
-    transform:rotate(15deg);
-}
-
-.product:hover .product-visual{
-    transform:scale(1.08);
+    inset:0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.2),
+            transparent 40%,
+            rgba(0,0,0,.7)
+        );
+    pointer-events:none;
 }
 
 .product-info{
@@ -400,13 +313,6 @@ nav a:hover:after{
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.3),
-        transparent 35%,
-        transparent 60%,
-        rgba(0,0,0,.55)
-    );
 }
 
 .product-top{
@@ -423,68 +329,70 @@ nav a:hover:after{
 }
 
 .product-name{
-    font-size:26px;
+    font-size:27px;
     letter-spacing:-1px;
 }
 
 .product-code{
-    font-size:10px;
-    color:#aaa;
     margin-top:8px;
+    font-size:9px;
+    color:#bbb;
+    letter-spacing:2px;
 }
 
 .explore{
-    font-size:10px;
+    font-size:9px;
     letter-spacing:2px;
-    border-bottom:1px solid rgba(255,255,255,.5);
-    padding-bottom:5px;
+    border-bottom:1px solid white;
+    padding-bottom:6px;
 }
 
-/* GIANT TYPE */
+/* BIG TYPE */
 
-.giant-type{
-    padding:130px 0;
+.big-type{
     overflow:hidden;
+    padding:100px 0;
 }
 
-.giant-type-line{
-    font-size:clamp(80px,17vw,260px);
+.big-type div{
+    font-size:clamp(90px,17vw,250px);
     line-height:.75;
-    letter-spacing:-13px;
+    letter-spacing:-14px;
     white-space:nowrap;
-    color:#151515;
-    transition:transform .8s cubic-bezier(.2,.7,.2,1);
+    color:#161616;
 }
 
-.giant-type-line:nth-child(2){
+.big-type div:nth-child(2){
     text-align:right;
-    color:#222;
+    color:#202020;
 }
 
 /* EDITORIAL */
 
 .editorial{
-    min-height:90vh;
+    height:90vh;
+    min-height:600px;
     position:relative;
     overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#111;
 }
 
-.editorial-bg{
+.editorial img{
     position:absolute;
-    inset:-10%;
-    background:
-        radial-gradient(
-            ellipse at center,
-            #777 0%,
-            #333 25%,
-            #111 58%,
-            #050505 100%
-        );
-    transition:transform 1s ease;
+    width:110%;
+    height:110%;
+    object-fit:cover;
+    filter:brightness(.45);
+    transform:scale(1.08);
+    transition:transform 1.2s ease;
+}
+
+.editorial-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.25);
 }
 
 .editorial-content{
@@ -493,53 +401,51 @@ nav a:hover:after{
     text-align:center;
 }
 
-.editorial-label{
+.editorial-content span{
     font-size:10px;
-    letter-spacing:4px;
-    margin-bottom:25px;
+    letter-spacing:5px;
 }
 
-.editorial h2{
-    font-size:clamp(60px,13vw,190px);
-    line-height:.8;
+.editorial-content h2{
+    margin-top:25px;
+    font-size:clamp(55px,12vw,180px);
     letter-spacing:-9px;
     font-weight:400;
 }
 
-/* INFO GRID */
+/* PHILOSOPHY */
 
-.info-grid{
+.philosophy{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:2px;
+    gap:3px;
 }
 
-.info-card{
-    min-height:500px;
-    background:#151515;
+.philosophy-card{
+    min-height:450px;
     padding:30px;
+    background:#151515;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 }
 
-.info-number{
-    font-size:10px;
+.philosophy-card small{
     color:#777;
     letter-spacing:2px;
 }
 
-.info-card h3{
-    font-size:35px;
+.philosophy-card h3{
+    font-size:40px;
     font-weight:400;
     letter-spacing:-2px;
 }
 
-.info-card p{
+.philosophy-card p{
+    max-width:330px;
+    color:#999;
     font-size:12px;
     line-height:1.8;
-    color:#999;
-    max-width:320px;
 }
 
 /* LOOKBOOK */
@@ -547,55 +453,53 @@ nav a:hover:after{
 .lookbook{
     display:grid;
     grid-template-columns:1.5fr 1fr;
-    gap:2px;
+    gap:3px;
 }
 
-.look-main,
-.look-small{
-    min-height:600px;
-    background:#222;
+.look{
     position:relative;
     overflow:hidden;
+    min-height:600px;
+    background:#151515;
 }
 
-.look-main{
-    background:
-        radial-gradient(ellipse at 45% 35%,#777,#222 40%,#090909 75%);
+.look img{
+    width:100%;
+    height:100%;
+    position:absolute;
+    inset:0;
+    object-fit:cover;
+    transition:transform 1s ease;
+    filter:brightness(.65);
 }
 
-.look-small:first-child{
-    background:
-        radial-gradient(ellipse at 60% 25%,#555,#181818 50%,#050505);
-}
-
-.look-small:last-child{
-    background:
-        radial-gradient(ellipse at 35% 60%,#666,#202020 45%,#080808);
+.look:hover img{
+    transform:scale(1.06);
 }
 
 .look-side{
     display:grid;
     grid-template-rows:1fr 1fr;
-    gap:2px;
+    gap:3px;
 }
 
-.look-content{
+.look-side .look{
+    min-height:298px;
+}
+
+.look-info{
     position:absolute;
     inset:0;
+    z-index:2;
     padding:25px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 }
 
-.look-title{
-    font-size:12px;
+.look-info span{
+    font-size:9px;
     letter-spacing:3px;
-}
-
-.look-number{
-    font-size:10px;
-    color:#bbb;
 }
 
 /* ARCHIVE */
@@ -603,59 +507,52 @@ nav a:hover:after{
 .archive{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:2px;
+    gap:3px;
 }
 
 .archive-item{
-    height:420px;
-    background:#181818;
-    position:relative;
+    height:430px;
     overflow:hidden;
+    position:relative;
+    background:#151515;
 }
 
-.archive-item:nth-child(1){
-    background:linear-gradient(150deg,#777,#222);
+.archive-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:grayscale(100%);
+    transition:.8s;
 }
 
-.archive-item:nth-child(2){
-    background:linear-gradient(120deg,#222,#777,#111);
+.archive-item:hover img{
+    transform:scale(1.06);
+    filter:grayscale(20%);
 }
 
-.archive-item:nth-child(3){
-    background:linear-gradient(160deg,#444,#111,#666);
-}
-
-.archive-item:after{
-    content:"";
+.archive-item span{
     position:absolute;
-    inset:20%;
-    background:rgba(255,255,255,.05);
-    filter:blur(25px);
-    transform:rotate(20deg);
-}
-
-.archive-label{
-    position:absolute;
-    z-index:2;
     left:20px;
     bottom:20px;
-    font-size:10px;
+    z-index:2;
+    font-size:9px;
     letter-spacing:2px;
 }
 
 /* ABOUT */
 
 .about{
-    min-height:80vh;
+    min-height:75vh;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:80px;
+    gap:100px;
     align-items:center;
 }
 
 .about h2{
-    font-size:clamp(50px,8vw,120px);
-    line-height:.85;
+    margin-top:20px;
+    font-size:clamp(55px,8vw,120px);
+    line-height:.82;
     letter-spacing:-7px;
     font-weight:400;
 }
@@ -665,20 +562,18 @@ nav a:hover:after{
 }
 
 .about-copy p{
-    font-size:14px;
-    line-height:2;
     color:#aaa;
+    font-size:13px;
+    line-height:2;
     margin-bottom:30px;
 }
 
 /* ADORNARE */
 
 .adornare{
-    padding:170px 45px;
-    background:#f0eee8;
+    background:#efede7;
     color:#111;
-    position:relative;
-    overflow:hidden;
+    padding:160px 45px;
 }
 
 .adornare-inner{
@@ -686,26 +581,25 @@ nav a:hover:after{
     margin:auto;
 }
 
-.adornare-small{
+.adornare-label{
     font-size:10px;
     letter-spacing:4px;
     margin-bottom:35px;
 }
 
 .adornare h2{
-    font-size:clamp(55px,10vw,150px);
+    font-size:clamp(60px,10vw,150px);
     line-height:.82;
     letter-spacing:-8px;
     font-weight:400;
-    max-width:900px;
 }
 
 .adornare p{
     max-width:420px;
     margin:45px 0;
+    color:#555;
     font-size:13px;
     line-height:1.8;
-    color:#555;
 }
 
 .adornare-link{
@@ -719,17 +613,16 @@ nav a:hover:after{
 /* FOOTER */
 
 footer{
-    padding:35px 45px;
     border-top:1px solid #222;
+    padding:30px 45px;
     display:flex;
     justify-content:space-between;
-    align-items:center;
 }
 
 footer span{
     font-size:9px;
-    letter-spacing:2px;
     color:#777;
+    letter-spacing:2px;
 }
 
 /* MODAL */
@@ -737,45 +630,51 @@ footer span{
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(5,5,5,.96);
-    z-index:9500;
+    background:rgba(0,0,0,.94);
+    z-index:9000;
     display:none;
     align-items:center;
     justify-content:center;
-    padding:40px;
+    padding:30px;
 }
 
 .modal.active{
     display:flex;
 }
 
-.modal-inner{
+.modal-box{
     width:min(1100px,100%);
+    max-height:90vh;
     display:grid;
     grid-template-columns:1fr 1fr;
+    background:#151515;
+    overflow:hidden;
+}
+
+.modal-image{
     min-height:600px;
 }
 
-.modal-visual{
-    background:
-        radial-gradient(ellipse at center,#666,#222 50%,#080808);
+.modal-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.modal-details{
-    background:#151515;
-    padding:50px;
+.modal-content{
+    padding:45px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 }
 
-.modal-close{
+.close{
     align-self:flex-end;
-    background:none;
     border:0;
-    color:#fff;
+    background:none;
+    color:white;
     cursor:pointer;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
 }
 
@@ -794,62 +693,22 @@ footer span{
 }
 
 .modal-description{
-    font-size:13px;
     color:#999;
+    font-size:13px;
     line-height:1.8;
     max-width:400px;
-}
-
-/* LIGHT MODE */
-
-body.light{
-    background:#efeee9;
-    color:#111;
-}
-
-body.light .marquee,
-body.light footer{
-    border-color:#d4d2cc;
-}
-
-body.light .giant-type-line{
-    color:#ddd;
-}
-
-body.light .product,
-body.light .info-card,
-body.light .modal-details{
-    background:#dddcd7;
-}
-
-body.light .modal{
-    background:rgba(240,239,234,.96);
-}
-
-body.light .hero{
-    color:#fff;
 }
 
 /* MOBILE */
 
 @media(max-width:700px){
 
-    body{
-        cursor:auto;
-    }
-
-    .cursor,
-    .cursor-text,
-    .progress{
-        display:none;
-    }
-
     header{
         padding:20px;
     }
 
     nav{
-        gap:14px;
+        gap:13px;
     }
 
     nav a{
@@ -869,10 +728,9 @@ body.light .hero{
 
     .hero-bottom{
         display:block;
-        margin-top:30px;
     }
 
-    .hero-description{
+    .hero-text{
         margin-bottom:25px;
     }
 
@@ -880,13 +738,9 @@ body.light .hero{
         padding:90px 20px;
     }
 
-    .section-head{
-        margin-bottom:35px;
-    }
-
     .section-title{
         font-size:48px;
-        letter-spacing:-3px;
+        letter-spacing:-4px;
     }
 
     .products{
@@ -894,39 +748,42 @@ body.light .hero{
     }
 
     .product{
-        min-height:500px;
+        height:530px;
     }
 
-    .giant-type{
-        padding:80px 0;
-    }
-
-    .giant-type-line{
-        font-size:26vw;
+    .big-type div{
+        font-size:27vw;
         letter-spacing:-7px;
     }
 
-    .info-grid{
-        grid-template-columns:1fr;
+    .editorial{
+        height:70vh;
     }
 
-    .info-card{
-        min-height:350px;
+    .editorial-content h2{
+        font-size:18vw;
+        letter-spacing:-5px;
+    }
+
+    .philosophy{
+        grid-template-columns:1fr;
     }
 
     .lookbook{
         grid-template-columns:1fr;
     }
 
-    .look-main,
-    .look-small{
-        min-height:450px;
+    .look{
+        min-height:500px;
     }
 
     .look-side{
-        display:grid;
         grid-template-columns:1fr 1fr;
         grid-template-rows:none;
+    }
+
+    .look-side .look{
+        min-height:350px;
     }
 
     .archive{
@@ -934,18 +791,17 @@ body.light .hero{
     }
 
     .archive-item{
-        height:350px;
+        height:380px;
     }
 
     .about{
         grid-template-columns:1fr;
         gap:50px;
-        min-height:auto;
     }
 
     .about h2{
-        font-size:65px;
-        letter-spacing:-4px;
+        font-size:68px;
+        letter-spacing:-5px;
     }
 
     .adornare{
@@ -959,24 +815,28 @@ body.light .hero{
 
     footer{
         padding:25px 20px;
-        gap:20px;
+        flex-direction:column;
+        gap:12px;
     }
 
     .modal{
-        padding:15px;
+        padding:12px;
     }
 
-    .modal-inner{
+    .modal-box{
         grid-template-columns:1fr;
-        min-height:80vh;
+        max-height:95vh;
+        overflow:auto;
     }
 
-    .modal-visual{
-        min-height:300px;
+    .modal-image{
+        min-height:320px;
+        height:45vh;
     }
 
-    .modal-details{
+    .modal-content{
         padding:25px;
+        min-height:330px;
     }
 }
 </style>
@@ -985,21 +845,16 @@ body.light .hero{
 <body>
 
 <!-- INTRO -->
+
 <div class="intro">
-    <div class="intro-logo">FONEX</div>
+    <h1>FONEX</h1>
 </div>
 
-<!-- CURSOR -->
-<div class="cursor"></div>
-<div class="cursor-text">EXPLORE</div>
-
-<!-- PROGRESS -->
-<div class="progress">
-    <div class="progress-bar"></div>
-</div>
 
 <!-- HEADER -->
+
 <header>
+
     <a href="#" class="logo">FONEX</a>
 
     <nav>
@@ -1007,16 +862,26 @@ body.light .hero{
         <a href="#lookbook">Lookbook</a>
         <a href="#about">Hakkımızda</a>
     </nav>
+
 </header>
 
+
 <!-- HERO -->
+
 <section class="hero">
 
-    <div class="hero-bg"></div>
+    <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=90"
+        alt="FONEX editorial fashion"
+        onerror="this.style.display='none'"
+    >
+
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
-        <div class="hero-kicker">
+        <div class="kicker">
             FONEX / 2026
         </div>
 
@@ -1028,23 +893,27 @@ body.light .hero{
 
         <div class="hero-bottom">
 
-            <p class="hero-description">
+            <p class="hero-text">
                 Sade. Keskin. Zamansız.
                 FONEX, form ve kimlik arasındaki
                 sınırı yeniden yorumlar.
             </p>
 
-            <a href="#collection" class="hero-btn">
+            <a href="#collection" class="hero-button">
                 KOLEKSİYONU GÖR ↘
             </a>
 
         </div>
 
     </div>
+
 </section>
 
+
 <!-- MARQUEE -->
+
 <div class="marquee">
+
     <div class="marquee-track">
 
         <span>FONEX</span>
@@ -1061,31 +930,42 @@ body.light .hero{
         <span>STRUCTURE</span>
 
     </div>
+
 </div>
 
+
 <!-- COLLECTION -->
+
 <section class="section" id="collection">
 
     <div class="section-head">
 
-        <div class="section-title">
+        <h2 class="section-title">
             KOLEKSİYON
-        </div>
+        </h2>
 
-        <div class="section-number">
+        <span class="section-number">
             001 — 008
-        </div>
+        </span>
 
     </div>
 
+
     <div class="products">
 
-        <article class="product"
+
+        <article
+            class="product"
             data-title="OVERSIZE CEKET"
             data-code="FNX / 001"
-            data-description="Keskin omuz hattı ve rahat silüeti bir araya getiren FONEX oversize ceket.">
+            data-description="Keskin omuz hattı ve rahat silüeti bir araya getiren FONEX oversize ceket."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85"
+                alt="Oversize Ceket"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1095,26 +975,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Oversize Ceket</div>
-                        <div class="product-code">STRUCTURE / 01</div>
+                        <div class="product-name">
+                            Oversize Ceket
+                        </div>
+
+                        <div class="product-code">
+                            STRUCTURE / 01
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="DERİ CEKET"
             data-code="FNX / 002"
-            data-description="Minimal yüzey, güçlü silüet ve zamansız bir dış katman.">
+            data-description="Minimal yüzey, güçlü silüet ve zamansız bir dış katman."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
+                alt="Deri Ceket"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1124,26 +1018,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Deri Ceket</div>
-                        <div class="product-code">FORM / 02</div>
+                        <div class="product-name">
+                            Deri Ceket
+                        </div>
+
+                        <div class="product-code">
+                            FORM / 02
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="YAPILI GÖMLEK"
             data-code="FNX / 003"
-            data-description="Klasik gömlek formunun daha geometrik ve modern yorumu.">
+            data-description="Klasik gömlek formunun daha geometrik ve modern yorumu."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=1200&q=85"
+                alt="Yapılı Gömlek"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1153,26 +1061,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Yapılı Gömlek</div>
-                        <div class="product-code">FORM / 03</div>
+                        <div class="product-name">
+                            Yapılı Gömlek
+                        </div>
+
+                        <div class="product-code">
+                            FORM / 03
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="ESSENTIAL SWEATSHIRT"
             data-code="FNX / 004"
-            data-description="Günlük kullanım için sadeleştirilmiş, temiz ve dengeli bir silüet.">
+            data-description="Günlük kullanım için sadeleştirilmiş, temiz ve dengeli bir silüet."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=1200&q=85"
+                alt="Essential Sweatshirt"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1182,26 +1104,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Essential Sweatshirt</div>
-                        <div class="product-code">IDENTITY / 04</div>
+                        <div class="product-name">
+                            Essential Sweatshirt
+                        </div>
+
+                        <div class="product-code">
+                            IDENTITY / 04
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="MİNİMAL TİŞÖRT"
             data-code="FNX / 005"
-            data-description="Gereksiz detaylardan arındırılmış temel parça.">
+            data-description="Gereksiz detaylardan arındırılmış temel parça."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85"
+                alt="Minimal Tişört"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1211,26 +1147,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Minimal Tişört</div>
-                        <div class="product-code">ESSENTIAL / 05</div>
+                        <div class="product-name">
+                            Minimal Tişört
+                        </div>
+
+                        <div class="product-code">
+                            ESSENTIAL / 05
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="GENİŞ KESİM PANTOLON"
             data-code="FNX / 006"
-            data-description="Akışkan kumaş yapısı ve geniş kesimiyle hareket odaklı tasarım.">
+            data-description="Akışkan kumaş yapısı ve geniş kesimiyle hareket odaklı tasarım."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1200&q=85"
+                alt="Geniş Kesim Pantolon"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1240,26 +1190,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Geniş Kesim Pantolon</div>
-                        <div class="product-code">FORM / 06</div>
+                        <div class="product-name">
+                            Geniş Kesim Pantolon
+                        </div>
+
+                        <div class="product-code">
+                            FORM / 06
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="UTILITY MONT"
             data-code="FNX / 007"
-            data-description="Fonksiyonel detayları sade bir dış görünüşle birleştiren mont.">
+            data-description="Fonksiyonel detayları sade bir dış görünüşle birleştiren mont."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=1200&q=85"
+                alt="Utility Mont"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1269,26 +1233,40 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Utility Mont</div>
-                        <div class="product-code">STRUCTURE / 07</div>
+                        <div class="product-name">
+                            Utility Mont
+                        </div>
+
+                        <div class="product-code">
+                            STRUCTURE / 07
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
 
-        <article class="product"
+        <article
+            class="product"
             data-title="URBAN OVERSHIRT"
             data-code="FNX / 008"
-            data-description="Gömlek ve ceket arasındaki çizgide duran çok yönlü şehir katmanı.">
+            data-description="Gömlek ve ceket arasındaki çizgide duran çok yönlü şehir katmanı."
+        >
 
-            <div class="product-visual"></div>
+            <img
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85"
+                alt="Urban Overshirt"
+                onerror="this.style.display='none'"
+            >
 
             <div class="product-info">
 
@@ -1298,83 +1276,89 @@ body.light .hero{
                 </div>
 
                 <div class="product-bottom">
+
                     <div>
-                        <div class="product-name">Urban Overshirt</div>
-                        <div class="product-code">IDENTITY / 08</div>
+                        <div class="product-name">
+                            Urban Overshirt
+                        </div>
+
+                        <div class="product-code">
+                            IDENTITY / 08
+                        </div>
                     </div>
 
                     <div class="explore">
                         İNCELE ↗
                     </div>
+
                 </div>
 
             </div>
+
         </article>
 
+
     </div>
+
 </section>
 
 
-<!-- GIANT TYPE -->
-<section class="giant-type">
+<!-- BIG TYPE -->
 
-    <div class="giant-type-line" data-speed="0.15">
-        FORM
-    </div>
+<section class="big-type">
 
-    <div class="giant-type-line" data-speed="-0.12">
-        IDENTITY
-    </div>
+    <div>FORM</div>
+    <div>IDENTITY</div>
 
 </section>
 
 
 <!-- EDITORIAL -->
+
 <section class="editorial">
 
-    <div class="editorial-bg"></div>
+    <img
+        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2200&q=90"
+        alt="FONEX Editorial"
+        onerror="this.style.display='none'"
+    >
+
+    <div class="editorial-overlay"></div>
 
     <div class="editorial-content">
 
-        <div class="editorial-label">
-            FONEX / EDITORIAL
-        </div>
+        <span>FONEX / EDITORIAL</span>
 
-        <h2>
-            STRUCTURE
-        </h2>
+        <h2>STRUCTURE</h2>
 
     </div>
 
 </section>
 
 
-<!-- DESIGN PHILOSOPHY -->
+<!-- PHILOSOPHY -->
+
 <section class="section">
 
     <div class="section-head">
 
-        <div class="section-title">
+        <h2 class="section-title">
             PHILOSOPHY
-        </div>
+        </h2>
 
-        <div class="section-number">
+        <span class="section-number">
             002
-        </div>
+        </span>
 
     </div>
 
-    <div class="info-grid">
+    <div class="philosophy">
 
-        <div class="info-card">
+        <div class="philosophy-card">
 
-            <div class="info-number">
-                01 / FORM
-            </div>
+            <small>01 / FORM</small>
 
-            <h3>
-                FORM
-            </h3>
+            <h3>FORM</h3>
 
             <p>
                 Silüeti belirleyen çizgiler,
@@ -1384,16 +1368,11 @@ body.light .hero{
 
         </div>
 
+        <div class="philosophy-card">
 
-        <div class="info-card">
+            <small>02 / IDENTITY</small>
 
-            <div class="info-number">
-                02 / IDENTITY
-            </div>
-
-            <h3>
-                IDENTITY
-            </h3>
+            <h3>IDENTITY</h3>
 
             <p>
                 Bir kıyafetin yalnızca ne olduğu değil,
@@ -1402,16 +1381,11 @@ body.light .hero{
 
         </div>
 
+        <div class="philosophy-card">
 
-        <div class="info-card">
+            <small>03 / STRUCTURE</small>
 
-            <div class="info-number">
-                03 / STRUCTURE
-            </div>
-
-            <h3>
-                STRUCTURE
-            </h3>
+            <h3>STRUCTURE</h3>
 
             <p>
                 Minimal detayların oluşturduğu
@@ -1426,67 +1400,73 @@ body.light .hero{
 
 
 <!-- LOOKBOOK -->
+
 <section class="section" id="lookbook">
 
     <div class="section-head">
 
-        <div class="section-title">
+        <h2 class="section-title">
             LOOKBOOK
-        </div>
+        </h2>
 
-        <div class="section-number">
+        <span class="section-number">
             003
-        </div>
+        </span>
 
     </div>
 
     <div class="lookbook">
 
-        <div class="look-main">
+        <div class="look">
 
-            <div class="look-content">
+            <img
+                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1500&q=85"
+                alt="Lookbook 01"
+                onerror="this.style.display='none'"
+            >
 
-                <div class="look-number">
-                    LOOK / 01
-                </div>
+            <div class="look-info">
 
-                <div class="look-title">
-                    MONOCHROME
-                </div>
+                <span>LOOK / 01</span>
+                <span>MONOCHROME</span>
 
             </div>
 
         </div>
 
+
         <div class="look-side">
 
-            <div class="look-small">
+            <div class="look">
 
-                <div class="look-content">
+                <img
+                    src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Lookbook 02"
+                    onerror="this.style.display='none'"
+                >
 
-                    <div class="look-number">
-                        LOOK / 02
-                    </div>
+                <div class="look-info">
 
-                    <div class="look-title">
-                        STRUCTURE
-                    </div>
+                    <span>LOOK / 02</span>
+                    <span>STRUCTURE</span>
 
                 </div>
 
             </div>
 
-            <div class="look-small">
 
-                <div class="look-content">
+            <div class="look">
 
-                    <div class="look-number">
-                        LOOK / 03
-                    </div>
+                <img
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85"
+                    alt="Lookbook 03"
+                    onerror="this.style.display='none'"
+                >
 
-                    <div class="look-title">
-                        FORM
-                    </div>
+                <div class="look-info">
+
+                    <span>LOOK / 03</span>
+                    <span>FORM</span>
 
                 </div>
 
@@ -1500,38 +1480,57 @@ body.light .hero{
 
 
 <!-- ARCHIVE -->
+
 <section class="section">
 
     <div class="section-head">
 
-        <div class="section-title">
+        <h2 class="section-title">
             ARCHIVE
-        </div>
+        </h2>
 
-        <div class="section-number">
+        <span class="section-number">
             004
-        </div>
+        </span>
 
     </div>
 
     <div class="archive">
 
         <div class="archive-item">
-            <div class="archive-label">
-                ARCHIVE / 001
-            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85"
+                alt="FONEX Archive 01"
+                onerror="this.style.display='none'"
+            >
+
+            <span>ARCHIVE / 001</span>
+
         </div>
 
         <div class="archive-item">
-            <div class="archive-label">
-                ARCHIVE / 002
-            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85"
+                alt="FONEX Archive 02"
+                onerror="this.style.display='none'"
+            >
+
+            <span>ARCHIVE / 002</span>
+
         </div>
 
         <div class="archive-item">
-            <div class="archive-label">
-                ARCHIVE / 003
-            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
+                alt="FONEX Archive 03"
+                onerror="this.style.display='none'"
+            >
+
+            <span>ARCHIVE / 003</span>
+
         </div>
 
     </div>
@@ -1540,6 +1539,7 @@ body.light .hero{
 
 
 <!-- ABOUT -->
+
 <section class="section about" id="about">
 
     <div>
@@ -1566,9 +1566,9 @@ body.light .hero{
         </p>
 
         <p>
-            Amacımız trendleri takip etmek yerine,
+            Trendleri takip etmek yerine,
             uzun süre kullanılabilecek güçlü ve
-            sade görsel kimlikler oluşturmaktır.
+            sade görsel kimlikler oluşturmayı amaçlar.
         </p>
 
     </div>
@@ -1577,11 +1577,12 @@ body.light .hero{
 
 
 <!-- ADORNARE -->
+
 <section class="adornare">
 
     <div class="adornare-inner">
 
-        <div class="adornare-small">
+        <div class="adornare-label">
             FONEX × ADORNARE
         </div>
 
@@ -1599,9 +1600,9 @@ body.light .hero{
         </p>
 
         <a
+            class="adornare-link"
             href="https://adornareparfum.adornareparfum.workers.dev"
             target="_blank"
-            class="adornare-link"
         >
             DISCOVER ADORNARE ↗
         </a>
@@ -1612,29 +1613,31 @@ body.light .hero{
 
 
 <!-- FOOTER -->
+
 <footer>
 
-    <span>
-        FONEX © 2026
-    </span>
+    <span>FONEX © 2026</span>
 
-    <span>
-        FORM / IDENTITY / STRUCTURE
-    </span>
+    <span>FORM / IDENTITY / STRUCTURE</span>
 
 </footer>
 
 
-<!-- PRODUCT MODAL -->
-<div class="modal" id="productModal">
+<!-- MODAL -->
 
-    <div class="modal-inner">
+<div class="modal" id="modal">
 
-        <div class="modal-visual" id="modalVisual"></div>
+    <div class="modal-box">
 
-        <div class="modal-details">
+        <div class="modal-image">
 
-            <button class="modal-close" id="modalClose">
+            <img id="modalImg" src="" alt="FONEX product">
+
+        </div>
+
+        <div class="modal-content">
+
+            <button class="close" id="close">
                 CLOSE ×
             </button>
 
@@ -1663,161 +1666,16 @@ body.light .hero{
 
 <script>
 
-/* CURSOR */
-
-const cursor = document.querySelector(".cursor");
-const cursorText = document.querySelector(".cursor-text");
-
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
-
-document.addEventListener("mousemove",(e)=>{
-
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-});
-
-function animateCursor(){
-
-    currentX += (mouseX-currentX)*.18;
-    currentY += (mouseY-currentY)*.18;
-
-    cursor.style.left = currentX+"px";
-    cursor.style.top = currentY+"px";
-
-    cursorText.style.left = currentX+"px";
-    cursorText.style.top = currentY+"px";
-
-    requestAnimationFrame(animateCursor);
-
-}
-
-animateCursor();
-
-
-/* PRODUCT CURSOR */
-
-document.querySelectorAll(".product").forEach(product=>{
-
-    product.addEventListener("mouseenter",()=>{
-
-        cursor.style.width="65px";
-        cursor.style.height="65px";
-
-        cursorText.style.opacity="1";
-
-    });
-
-    product.addEventListener("mouseleave",()=>{
-
-        cursor.style.width="12px";
-        cursor.style.height="12px";
-
-        cursorText.style.opacity="0";
-
-        product.querySelector(".product-visual").style.transform="";
-
-    });
-
-    product.addEventListener("mousemove",(e)=>{
-
-        const rect=product.getBoundingClientRect();
-
-        const x=(e.clientX-rect.left)/rect.width-.5;
-        const y=(e.clientY-rect.top)/rect.height-.5;
-
-        product.querySelector(".product-visual").style.transform=
-            `scale(1.08) translate(${x*18}px,${y*18}px)`;
-
-    });
-
-});
-
-
-/* PRODUCT MODAL */
-
-const modal=document.getElementById("productModal");
-const modalTitle=document.getElementById("modalTitle");
-const modalCode=document.getElementById("modalCode");
-const modalDescription=document.getElementById("modalDescription");
-const modalVisual=document.getElementById("modalVisual");
-const modalClose=document.getElementById("modalClose");
-
-document.querySelectorAll(".product").forEach(product=>{
-
-    product.addEventListener("click",()=>{
-
-        modalTitle.textContent=product.dataset.title;
-        modalCode.textContent=product.dataset.code;
-        modalDescription.textContent=product.dataset.description;
-
-        const visual=product.querySelector(".product-visual");
-
-        modalVisual.style.background=getComputedStyle(visual).background;
-
-        modal.classList.add("active");
-
-        document.body.style.overflow="hidden";
-
-    });
-
-});
-
-modalClose.addEventListener("click",closeModal);
-
-modal.addEventListener("click",(e)=>{
-
-    if(e.target===modal){
-        closeModal();
-    }
-
-});
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.key==="Escape"){
-        closeModal();
-    }
-
-});
-
-function closeModal(){
-
-    modal.classList.remove("active");
-
-    document.body.style.overflow="";
-
-}
-
-
-/* SCROLL PROGRESS */
-
-window.addEventListener("scroll",()=>{
-
-    const scrollTop=window.scrollY;
-
-    const height=document.documentElement.scrollHeight-window.innerHeight;
-
-    const progress=(scrollTop/height)*100;
-
-    document.querySelector(".progress-bar").style.height=progress+"%";
-
-});
-
-
 /* HERO PARALLAX */
 
-window.addEventListener("scroll",()=>{
+const heroImage = document.querySelector(".hero-image");
 
-    const bg=document.querySelector(".hero-bg");
+window.addEventListener("scroll", () => {
 
-    if(window.scrollY<window.innerHeight){
+    if(heroImage && window.scrollY < window.innerHeight){
 
-        bg.style.transform=
-            `scale(1.05) translateY(${window.scrollY*.18}px)`;
+        heroImage.style.transform =
+            `scale(1.04) translateY(${window.scrollY * .12}px)`;
 
     }
 
@@ -1826,122 +1684,172 @@ window.addEventListener("scroll",()=>{
 
 /* EDITORIAL PARALLAX */
 
-window.addEventListener("scroll",()=>{
+const editorialImage =
+    document.querySelector(".editorial img");
 
-    const editorial=document.querySelector(".editorial");
+window.addEventListener("scroll", () => {
 
-    const bg=document.querySelector(".editorial-bg");
+    if(!editorialImage) return;
 
-    const rect=editorial.getBoundingClientRect();
+    const section =
+        document.querySelector(".editorial");
 
-    const movement=(window.innerHeight/2-rect.top)*.08;
+    const rect =
+        section.getBoundingClientRect();
 
-    bg.style.transform=
-        `translateY(${movement}px) scale(1.1)`;
+    const movement =
+        (window.innerHeight / 2 - rect.top) * .06;
+
+    editorialImage.style.transform =
+        `scale(1.08) translateY(${movement}px)`;
 
 });
 
 
-/* GIANT TYPE MOVEMENT */
+/* PRODUCT MOUSE MOVEMENT */
 
-window.addEventListener("scroll",()=>{
+document.querySelectorAll(".product").forEach(product => {
 
-    document.querySelectorAll(".giant-type-line").forEach(line=>{
+    const image = product.querySelector("img");
 
-        const speed=parseFloat(line.dataset.speed);
+    product.addEventListener("mousemove", e => {
 
-        const rect=line.getBoundingClientRect();
+        if(window.innerWidth <= 700) return;
 
-        if(rect.top<window.innerHeight && rect.bottom>0){
+        const rect =
+            product.getBoundingClientRect();
 
-            const movement=(window.innerHeight-rect.top)*speed;
+        const x =
+            (e.clientX - rect.left) / rect.width - .5;
 
-            line.style.transform=
-                `translateX(${movement}px)`;
+        const y =
+            (e.clientY - rect.top) / rect.height - .5;
 
-        }
+        image.style.transform =
+            `scale(1.08) translate(${x * 16}px, ${y * 16}px)`;
+
+    });
+
+    product.addEventListener("mouseleave", () => {
+
+        image.style.transform = "";
 
     });
 
 });
 
 
-/* MOUSE LIGHT */
+/* PRODUCT MODAL */
 
-const light=document.createElement("div");
+const modal =
+    document.getElementById("modal");
 
-light.style.position="fixed";
-light.style.width="300px";
-light.style.height="300px";
-light.style.borderRadius="50%";
-light.style.pointerEvents="none";
-light.style.zIndex="1";
-light.style.background=
-    "radial-gradient(circle,rgba(255,255,255,.045),transparent 70%)";
-light.style.transform="translate(-50%,-50%)";
+const modalImg =
+    document.getElementById("modalImg");
 
-document.body.appendChild(light);
+const modalTitle =
+    document.getElementById("modalTitle");
 
-document.addEventListener("mousemove",(e)=>{
+const modalCode =
+    document.getElementById("modalCode");
 
-    if(window.innerWidth>700){
+const modalDescription =
+    document.getElementById("modalDescription");
 
-        light.style.left=e.clientX+"px";
-        light.style.top=e.clientY+"px";
+document.querySelectorAll(".product").forEach(product => {
+
+    product.addEventListener("click", () => {
+
+        const image =
+            product.querySelector("img");
+
+        modalImg.src = image.src;
+
+        modalTitle.textContent =
+            product.dataset.title;
+
+        modalCode.textContent =
+            product.dataset.code;
+
+        modalDescription.textContent =
+            product.dataset.description;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+document
+    .getElementById("close")
+    .addEventListener("click", closeModal);
+
+modal.addEventListener("click", e => {
+
+    if(e.target === modal){
+
+        closeModal();
+
+    }
+
+});
+
+document.addEventListener("keydown", e => {
+
+    if(e.key === "Escape"){
+
+        closeModal();
 
     }
 
 });
 
 
-/* LIGHT / DARK */
+/* LOOKBOOK PARALLAX */
 
-const modeButton=document.createElement("button");
+document.querySelectorAll(".look").forEach(look => {
 
-modeButton.innerHTML="◐";
-modeButton.style.position="fixed";
-modeButton.style.right="30px";
-modeButton.style.bottom="25px";
-modeButton.style.zIndex="850";
-modeButton.style.background="none";
-modeButton.style.border="0";
-modeButton.style.color="inherit";
-modeButton.style.fontSize="18px";
-modeButton.style.cursor="pointer";
+    const image =
+        look.querySelector("img");
 
-document.body.appendChild(modeButton);
+    look.addEventListener("mousemove", e => {
 
-modeButton.addEventListener("click",()=>{
+        if(window.innerWidth <= 700) return;
 
-    document.body.classList.toggle("light");
+        const rect =
+            look.getBoundingClientRect();
 
-});
+        const x =
+            (e.clientX - rect.left) / rect.width - .5;
 
+        const y =
+            (e.clientY - rect.top) / rect.height - .5;
 
-/* MOBILE TOUCH PARALLAX */
-
-if(window.innerWidth<=700){
-
-    window.addEventListener("scroll",()=>{
-
-        document.querySelectorAll(".product-visual").forEach((visual,index)=>{
-
-            const rect=visual.parentElement.getBoundingClientRect();
-
-            if(rect.top<window.innerHeight && rect.bottom>0){
-
-                const movement=(window.innerHeight-rect.top)*.025;
-
-                visual.style.transform=
-                    `scale(1.04) translateY(${movement}px)`;
-
-            }
-
-        });
+        image.style.transform =
+            `scale(1.06) translate(${x * 12}px,${y * 12}px)`;
 
     });
 
-}
+    look.addEventListener("mouseleave", () => {
+
+        image.style.transform = "";
+
+    });
+
+});
 
 </script>
 
