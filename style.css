@@ -34,8 +34,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-
-    padding: 30px 45px;
+    padding: 25px 35px;
 
     display: flex;
     justify-content: space-between;
@@ -49,130 +48,113 @@ header {
 .logo {
     color: white;
     text-decoration: none;
-
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 8px;
+    letter-spacing: 7px;
 }
 
 nav {
     display: flex;
-    gap: 32px;
+    gap: 30px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-
-    transition: opacity .4s ease;
-}
-
-nav a:hover {
-    opacity: .4;
 }
 
 
 /* HERO */
 
 .hero {
+    min-height: 100svh;
     position: relative;
-
-    min-height: 100vh;
 
     display: flex;
     align-items: center;
 
-    padding: 120px 6vw;
-
-    overflow: hidden;
+    padding: 120px 7vw;
 
     background:
         linear-gradient(
             90deg,
             rgba(0,0,0,.88),
-            rgba(0,0,0,.25),
+            rgba(0,0,0,.3),
             rgba(0,0,0,.72)
         ),
         url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=90");
 
     background-size: cover;
     background-position: center;
+
+    overflow: hidden;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-
     max-width: 800px;
 }
 
 .eyebrow {
     display: block;
+    margin-bottom: 22px;
 
-    margin-bottom: 25px;
-
-    font-size: 10px;
-    letter-spacing: 4px;
+    font-size: 9px;
+    letter-spacing: 3px;
 }
 
 .hero h1 {
     font-family: Georgia, "Times New Roman", serif;
 
-    font-size: clamp(70px, 11vw, 160px);
-    line-height: .82;
+    font-size: clamp(62px, 11vw, 160px);
+    line-height: .84;
     font-weight: 400;
-    letter-spacing: -7px;
 
-    margin-bottom: 38px;
+    letter-spacing: -5px;
+
+    margin-bottom: 32px;
 }
 
 .hero-content > p {
-    max-width: 370px;
+    max-width: 330px;
 
     font-size: 13px;
     line-height: 1.7;
 
-    opacity: .7;
+    opacity: .72;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .button {
     display: inline-block;
 
-    padding: 17px 27px;
+    padding: 16px 23px;
 
     border: 1px solid #f1eee8;
 
     color: #f1eee8;
     text-decoration: none;
 
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 2px;
 
-    transition:
-        background .5s ease,
-        color .5s ease,
-        transform .5s ease;
+    transition: .5s ease;
 }
 
 .button:hover {
     background: #f1eee8;
     color: #0b0b0b;
-
-    transform: translateY(-3px);
 }
 
 .hero-meta {
     position: absolute;
 
-    left: 6vw;
-    right: 6vw;
-    bottom: 30px;
+    left: 7vw;
+    right: 7vw;
+    bottom: 28px;
 
     display: flex;
     justify-content: space-between;
@@ -180,26 +162,28 @@ nav a:hover {
     font-size: 8px;
     letter-spacing: 3px;
 
-    opacity: .55;
+    opacity: .5;
 }
 
 
-/* SECTION HEADER */
+/* SECTIONS */
 
 .collection,
 .lookbook,
-.about {
-    padding: 150px 6vw;
+.about,
+.adornare {
+    padding: 140px 7vw;
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
 
+    padding-top: 14px;
+
     border-top: 1px solid currentColor;
 
-    padding-top: 15px;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
 
     font-size: 9px;
     letter-spacing: 3px;
@@ -217,40 +201,44 @@ nav a:hover {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
 
-    gap: 70px;
+    gap: 60px;
 
     align-items: end;
 
-    margin-bottom: 100px;
+    margin-bottom: 90px;
 }
 
-.section-intro h2 {
+.section-intro h2,
+.lookbook-title h2 {
     font-family: Georgia, "Times New Roman", serif;
 
-    font-size: clamp(65px, 9vw, 135px);
-    line-height: .82;
+    font-size: clamp(60px, 9vw, 130px);
+
+    line-height: .83;
+
     font-weight: 400;
-    letter-spacing: -6px;
+
+    letter-spacing: -5px;
 }
 
 .section-intro p {
     max-width: 400px;
 
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.8;
 
-    opacity: .62;
+    opacity: .6;
 }
 
 
-/* PRODUCT GRID */
+/* PRODUCTS */
 
 .product-grid {
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 100px 25px;
+    gap: 80px 25px;
 }
 
 .product-card {
@@ -258,20 +246,15 @@ nav a:hover {
 }
 
 .product-card:nth-child(even) {
-    margin-top: 140px;
+    margin-top: 100px;
 }
-
-
-/* PRODUCT IMAGE */
 
 .product-image {
     position: relative;
 
-    height: 700px;
+    height: 680px;
 
     overflow: hidden;
-
-    background: #ddd;
 }
 
 .product-image img {
@@ -281,66 +264,50 @@ nav a:hover {
     margin-left: -4%;
     margin-top: -4%;
 
-    object-fit: cover;
-
     transition:
-        transform 1.2s cubic-bezier(.2,.65,.25,1),
-        filter .8s ease;
+        transform 1s cubic-bezier(.2,.65,.25,1);
 }
-
-
-/* GERÇEK HOVER HAREKETİ */
 
 .product-card:hover .product-image img {
     transform: scale(1.07);
-    filter: contrast(1.04);
 }
-
-
-/* ÜRÜN NUMARASI */
 
 .product-image > span {
     position: absolute;
 
-    top: 18px;
-    left: 18px;
+    top: 16px;
+    left: 16px;
 
-    z-index: 3;
-
-    padding: 8px 10px;
+    padding: 7px 9px;
 
     background: rgba(245,243,238,.9);
 
     color: #111;
 
-    font-size: 9px;
+    font-size: 8px;
     letter-spacing: 2px;
 }
-
-
-/* İNCELE */
 
 .view {
     position: absolute;
 
-    right: 20px;
-    bottom: 20px;
+    right: 16px;
+    bottom: 16px;
 
-    padding: 13px 16px;
+    padding: 12px 14px;
 
-    background: rgba(245,243,238,.92);
+    background: rgba(245,243,238,.94);
 
     color: #111;
 
-    font-size: 9px;
+    font-size: 8px;
     letter-spacing: 2px;
 
     opacity: 0;
-    transform: translateY(10px);
 
-    transition:
-        opacity .5s ease,
-        transform .5s ease;
+    transform: translateY(8px);
+
+    transition: .45s ease;
 }
 
 .product-card:hover .view {
@@ -348,21 +315,18 @@ nav a:hover {
     transform: translateY(0);
 }
 
-
-/* PRODUCT INFO */
-
 .product-info {
     display: flex;
     justify-content: space-between;
 
-    padding: 17px 0;
+    padding: 16px 0;
 
-    border-bottom: 1px solid rgba(0,0,0,.2);
+    border-bottom: 1px solid rgba(0,0,0,.18);
 }
 
 .product-info strong,
 .product-info small {
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 2px;
 
     font-weight: 400;
@@ -377,21 +341,11 @@ nav a:hover {
 
 .lookbook-title {
     display: flex;
-    justify-content: space-between;
 
+    justify-content: space-between;
     align-items: end;
 
-    margin-bottom: 100px;
-}
-
-.lookbook-title h2 {
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: clamp(60px, 8vw, 125px);
-    line-height: .83;
-
-    font-weight: 400;
-    letter-spacing: -6px;
+    margin-bottom: 90px;
 }
 
 .lookbook-title p {
@@ -408,23 +362,23 @@ nav a:hover {
 
     grid-template-columns: 1.4fr 1fr;
 
-    gap: 25px;
+    gap: 22px;
 }
 
 .lookbook-card {
-    position: relative;
+    height: 620px;
 
-    height: 650px;
+    position: relative;
 
     overflow: hidden;
 }
 
 .lookbook-card.wide {
-    height: 900px;
+    height: 850px;
 }
 
 .lookbook-card:nth-child(2) {
-    margin-top: 180px;
+    margin-top: 150px;
 }
 
 .lookbook-card:nth-child(3) {
@@ -433,7 +387,7 @@ nav a:hover {
 
 .lookbook-card:nth-child(4) {
     grid-column: 1 / -1;
-    height: 750px;
+    height: 700px;
 }
 
 .lookbook-card img {
@@ -444,25 +398,25 @@ nav a:hover {
     margin-top: -3%;
 
     transition:
-        transform 1.5s cubic-bezier(.2,.65,.25,1);
+        transform 1.3s cubic-bezier(.2,.65,.25,1);
 }
 
 .lookbook-card:hover img {
-    transform: scale(1.06);
+    transform: scale(1.05);
 }
 
 .lookbook-card span {
     position: absolute;
 
-    left: 20px;
-    bottom: 20px;
+    left: 16px;
+    bottom: 16px;
 
-    font-size: 9px;
-    letter-spacing: 3px;
+    padding: 9px 12px;
 
     background: rgba(0,0,0,.65);
 
-    padding: 10px 13px;
+    font-size: 8px;
+    letter-spacing: 2px;
 }
 
 
@@ -478,19 +432,19 @@ nav a:hover {
 
     grid-template-columns: 1.3fr 1fr;
 
-    gap: 100px;
+    gap: 80px;
 }
 
 .about-grid h2 {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, serif;
 
-    font-size: clamp(65px, 10vw, 150px);
+    font-size: clamp(65px, 10vw, 145px);
 
     line-height: .8;
 
     font-weight: 400;
 
-    letter-spacing: -7px;
+    letter-spacing: -6px;
 }
 
 .about-copy {
@@ -498,16 +452,18 @@ nav a:hover {
 }
 
 .about-copy p {
-    font-size: 14px;
+    font-size: 13px;
+
     line-height: 1.8;
 
-    opacity: .62;
+    opacity: .6;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .about-copy .large {
-    font-size: 20px;
+    font-size: 19px;
+
     line-height: 1.5;
 
     opacity: 1;
@@ -517,13 +473,11 @@ nav a:hover {
 /* ADORNARE */
 
 .adornare {
-    padding: 150px 6vw;
-
     background: #171717;
 }
 
 .adornare-box {
-    min-height: 620px;
+    min-height: 580px;
 
     border: 1px solid rgba(241,238,232,.25);
 
@@ -533,18 +487,18 @@ nav a:hover {
 
     align-items: center;
 
-    padding: 70px;
+    padding: 65px;
 }
 
 .adornare-text > span {
-    font-size: 9px;
+    font-size: 8px;
     letter-spacing: 4px;
 
     opacity: .45;
 }
 
 .adornare-text h2 {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, serif;
 
     font-size: clamp(55px, 7vw, 105px);
 
@@ -554,40 +508,39 @@ nav a:hover {
 
     letter-spacing: -5px;
 
-    margin: 35px 0;
+    margin: 32px 0;
 }
 
 .adornare-text p {
-    max-width: 450px;
+    max-width: 430px;
 
     font-size: 13px;
+
     line-height: 1.8;
 
     opacity: .6;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .adornare-button {
     display: inline-flex;
 
-    gap: 25px;
+    gap: 22px;
 
-    padding: 16px 23px;
+    padding: 15px 21px;
 
-    border: 1px solid rgba(241,238,232,.6);
+    border: 1px solid rgba(241,238,232,.55);
 
     color: #f1eee8;
 
     text-decoration: none;
 
     font-size: 9px;
+
     letter-spacing: 2px;
 
-    transition:
-        background .5s ease,
-        color .5s ease,
-        transform .5s ease;
+    transition: .5s ease;
 }
 
 .adornare-button:hover {
@@ -599,33 +552,34 @@ nav a:hover {
 
 .adornare-symbol {
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
-    justify-content: center;
 
-    gap: 15px;
+    gap: 14px;
 }
 
 .adornare-symbol div {
-    width: 170px;
-    height: 170px;
+    width: 160px;
+    height: 160px;
 
     border: 1px solid rgba(241,238,232,.4);
 
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     font-family: Georgia, serif;
 
-    font-size: 75px;
+    font-size: 70px;
 }
 
 .adornare-symbol span {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 7px;
 }
 
@@ -640,19 +594,19 @@ nav a:hover {
 /* FOOTER */
 
 footer {
-    padding: 60px 6vw;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 55px 7vw;
 
     background: #0b0b0b;
 
-    border-top: 1px solid rgba(255,255,255,.1);
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
 }
 
 footer strong {
-    font-size: 20px;
+    font-size: 19px;
     letter-spacing: 6px;
 }
 
@@ -663,7 +617,7 @@ footer span {
 }
 
 
-/* PRODUCT MODAL */
+/* MODAL */
 
 .product-modal {
     position: fixed;
@@ -673,17 +627,16 @@ footer span {
     z-index: 500;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    padding: 30px;
+    padding: 25px;
 
     opacity: 0;
     visibility: hidden;
 
-    transition:
-        opacity .45s ease,
-        visibility .45s ease;
+    transition: opacity .4s ease;
 }
 
 .product-modal.active {
@@ -696,16 +649,17 @@ footer span {
 
     inset: 0;
 
-    background: rgba(0,0,0,.78);
+    background: rgba(0,0,0,.8);
 
     backdrop-filter: blur(10px);
 }
 
 .modal-content {
     position: relative;
+
     z-index: 2;
 
-    width: min(1000px, 100%);
+    width: min(950px, 100%);
 
     max-height: 90vh;
 
@@ -718,59 +672,47 @@ footer span {
     color: #111;
 
     overflow: hidden;
-
-    transform: translateY(25px) scale(.98);
-
-    transition: transform .5s cubic-bezier(.2,.65,.25,1);
-}
-
-.product-modal.active .modal-content {
-    transform: translateY(0) scale(1);
 }
 
 .modal-image {
-    height: 700px;
+    height: 680px;
 }
 
 .modal-info {
-    padding: 60px;
+    padding: 55px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
 }
 
-.modal-info > span:first-child {
-    font-size: 9px;
-    letter-spacing: 3px;
-
-    opacity: .5;
-}
-
 .modal-info h2 {
     font-family: Georgia, serif;
 
-    font-size: 55px;
-
-    line-height: .9;
+    font-size: 50px;
 
     font-weight: 400;
 
-    margin: 25px 0;
+    line-height: .9;
+
+    margin: 22px 0;
 }
 
 .modal-info p {
     font-size: 13px;
+
     line-height: 1.8;
 
     opacity: .6;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .modal-note {
     font-size: 8px;
+
     letter-spacing: 2px;
 
     opacity: .4;
@@ -779,8 +721,8 @@ footer span {
 .modal-close {
     position: absolute;
 
-    top: 15px;
-    right: 20px;
+    top: 12px;
+    right: 18px;
 
     z-index: 5;
 
@@ -788,7 +730,7 @@ footer span {
 
     background: transparent;
 
-    font-size: 32px;
+    font-size: 30px;
 
     cursor: pointer;
 
@@ -796,16 +738,18 @@ footer span {
 }
 
 
+/* ============================= */
 /* MOBILE */
+/* ============================= */
 
 @media (max-width: 700px) {
 
     header {
-        padding: 23px 20px;
+        padding: 20px 18px;
     }
 
     .logo {
-        font-size: 19px;
+        font-size: 18px;
         letter-spacing: 5px;
     }
 
@@ -814,40 +758,101 @@ footer span {
     }
 
     nav a {
-        font-size: 8px;
+        font-size: 7px;
         letter-spacing: 1px;
     }
 
+
+    /* HERO */
+
     .hero {
-        padding: 100px 25px;
+        min-height: 100svh;
+
+        padding: 110px 22px 80px;
+
+        align-items: center;
+
+        background-position: 62% center;
     }
 
     .hero h1 {
-        font-size: 67px;
-        letter-spacing: -4px;
+        font-size: clamp(54px, 16vw, 76px);
+
+        letter-spacing: -3px;
+
+        line-height: .86;
+
+        margin-bottom: 28px;
+    }
+
+    .hero-content > p {
+        max-width: 280px;
+
+        font-size: 12px;
+
+        margin-bottom: 25px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+    }
+
+    .button {
+        padding: 14px 19px;
+
+        font-size: 8px;
     }
 
     .hero-meta {
-        left: 25px;
-        right: 25px;
+        left: 22px;
+        right: 22px;
+
+        bottom: 22px;
+
+        font-size: 7px;
     }
+
+
+    /* SECTIONS */
 
     .collection,
     .lookbook,
     .about,
     .adornare {
-        padding: 100px 25px;
+        padding: 90px 20px;
     }
 
     .section-header {
+        margin-bottom: 60px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* COLLECTION */
+
+    .section-intro {
+        display: block;
+
         margin-bottom: 65px;
     }
 
-    .section-intro,
-    .about-grid {
-        grid-template-columns: 1fr;
+    .section-intro h2,
+    .lookbook-title h2 {
+        font-size: clamp(55px, 17vw, 75px);
 
-        gap: 40px;
+        letter-spacing: -3px;
+
+        margin-bottom: 35px;
+    }
+
+    .section-intro p {
+        font-size: 12px;
+
+        line-height: 1.75;
     }
 
     .product-grid {
@@ -861,71 +866,221 @@ footer span {
     }
 
     .product-image {
-        height: 550px;
+        height: 125vw;
+
+        max-height: 570px;
+
+        min-height: 420px;
+    }
+
+    .product-info {
+        padding: 14px 0;
+    }
+
+    .product-info strong,
+    .product-info small {
+        font-size: 8px;
     }
 
     .view {
         opacity: 1;
-        transform: translateY(0);
+
+        transform: none;
+
+        right: 12px;
+        bottom: 12px;
     }
+
+
+    /* LOOKBOOK */
 
     .lookbook-title {
         display: block;
+
+        margin-bottom: 65px;
     }
 
     .lookbook-title p {
-        margin-top: 35px;
+        font-size: 12px;
+
+        max-width: 280px;
     }
 
     .lookbook-grid {
-        grid-template-columns: 1fr;
+        display: block;
     }
 
     .lookbook-card,
     .lookbook-card.wide,
     .lookbook-card:nth-child(4) {
-        height: 600px;
-        grid-column: auto;
-        margin-top: 0;
+        height: 125vw;
+
+        min-height: 420px;
+
+        max-height: 600px;
+
+        margin: 0 0 35px 0;
+    }
+
+    .lookbook-card span {
+        font-size: 7px;
+    }
+
+
+    /* ABOUT */
+
+    .about-grid {
+        display: block;
+    }
+
+    .about-grid h2 {
+        font-size: clamp(65px, 18vw, 85px);
+
+        letter-spacing: -4px;
+
+        margin-bottom: 60px;
+    }
+
+    .about-copy {
+        max-width: none;
+    }
+
+    .about-copy .large {
+        font-size: 17px;
+    }
+
+    .about-copy p {
+        font-size: 12px;
+
+        margin-bottom: 25px;
+    }
+
+
+    /* ADORNARE */
+
+    .adornare {
+        padding: 70px 20px;
     }
 
     .adornare-box {
-        grid-template-columns: 1fr;
+        display: block;
 
-        padding: 35px;
+        min-height: auto;
 
-        gap: 80px;
+        padding: 35px 25px;
+    }
+
+    .adornare-text h2 {
+        font-size: clamp(48px, 14vw, 70px);
+
+        letter-spacing: -3px;
+
+        margin: 28px 0;
+    }
+
+    .adornare-text p {
+        font-size: 12px;
+
+        margin-bottom: 28px;
+    }
+
+    .adornare-symbol {
+        margin-top: 70px;
     }
 
     .adornare-symbol div {
-        width: 130px;
-        height: 130px;
+        width: 120px;
+        height: 120px;
 
-        font-size: 55px;
+        font-size: 52px;
     }
 
+    .adornare-symbol span {
+        font-size: 11px;
+
+        letter-spacing: 5px;
+    }
+
+
+    /* FOOTER */
+
     footer {
+        padding: 45px 20px;
+
         flex-direction: column;
-        gap: 25px;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+
+    /* MODAL */
+
+    .product-modal {
+        padding: 15px;
     }
 
     .modal-content {
-        grid-template-columns: 1fr;
+        display: block;
 
-        max-height: 90vh;
+        width: 100%;
+
+        max-height: 92vh;
 
         overflow-y: auto;
     }
 
     .modal-image {
-        height: 400px;
+        height: 105vw;
+
+        max-height: 470px;
+
+        min-height: 350px;
     }
 
     .modal-info {
-        padding: 35px;
+        padding: 30px 25px 35px;
     }
 
     .modal-info h2 {
-        font-size: 42px;
+        font-size: 40px;
+
+        margin: 18px 0;
     }
+
+    .modal-info p {
+        font-size: 12px;
+    }
+
+    .modal-close {
+        top: 8px;
+        right: 12px;
+
+        font-size: 28px;
+    }
+
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 6.5px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .product-image {
+        min-height: 380px;
+    }
+
 }
