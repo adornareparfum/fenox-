@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0a0a0a;
+    color: #f2f0eb;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 32px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: #f2f0eb;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.5;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    padding: 120px 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-content p {
+    margin-bottom: 25px;
+
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(70px, 11vw, 170px);
+    line-height: 0.82;
+    font-weight: 400;
+    letter-spacing: -6px;
+
+    margin-bottom: 50px;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 17px 32px;
+
+    border: 1px solid #f2f0eb;
+
+    color: #f2f0eb;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: #f2f0eb;
+    color: #0a0a0a;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 25px;
+    }
+
+    .logo {
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        padding: 100px 25px;
+        background-position: 65% center;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+        letter-spacing: -3px;
+    }
+
+}
