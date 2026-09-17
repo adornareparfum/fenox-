@@ -12,12 +12,20 @@ body {
     background: #0a0a0a;
     color: #f2f0eb;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* HEADER */
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -27,10 +35,13 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    z-index: 10;
+    z-index: 100;
+    mix-blend-mode: difference;
 }
 
 .logo {
+    color: #fff;
+    text-decoration: none;
     font-size: 26px;
     font-weight: 700;
     letter-spacing: 8px;
@@ -42,26 +53,29 @@ nav {
 }
 
 nav a {
-    color: #f2f0eb;
+    color: #fff;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
 
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
 }
 
 nav a:hover {
-    opacity: 0.5;
+    opacity: 0.45;
 }
+
 
 /* HERO */
 
 .hero {
+    position: relative;
     min-height: 100vh;
 
     display: flex;
     align-items: center;
+
     padding: 120px 50px;
 
     background:
@@ -75,13 +89,27 @@ nav a:hover {
 
     background-size: cover;
     background-position: center;
+
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255,255,255,0.025);
+
+    pointer-events: none;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 900px;
 }
 
-.hero-content p {
+.eyebrow {
     margin-bottom: 25px;
 
     font-size: 11px;
@@ -113,13 +141,234 @@ nav a:hover {
     font-size: 11px;
     letter-spacing: 3px;
 
-    transition: all 0.3s ease;
+    transition:
+        background 0.5s ease,
+        color 0.5s ease,
+        transform 0.5s ease;
 }
 
 .button:hover {
     background: #f2f0eb;
     color: #0a0a0a;
+    transform: translateY(-3px);
 }
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 35px;
+    right: 50px;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    writing-mode: vertical-rl;
+
+    opacity: 0.6;
+}
+
+
+/* COLLECTION */
+
+.collection {
+    padding: 160px 50px;
+    background: #f2f0eb;
+    color: #0a0a0a;
+}
+
+.section-heading {
+    margin-bottom: 80px;
+}
+
+.section-heading p,
+.lookbook-title p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2,
+.lookbook-title h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(55px, 8vw, 120px);
+    line-height: 0.85;
+    font-weight: 400;
+    letter-spacing: -4px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    cursor: pointer;
+}
+
+.image-wrap {
+    height: 650px;
+    overflow: hidden;
+    background: #ddd;
+}
+
+.product-card img {
+    transition:
+        transform 1.2s cubic-bezier(0.2, 0.65, 0.25, 1),
+        filter 0.8s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.045);
+    filter: contrast(1.05);
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 18px 0;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* LOOKBOOK */
+
+.lookbook {
+    padding: 160px 50px;
+    background: #0a0a0a;
+}
+
+.lookbook-title {
+    margin-bottom: 100px;
+}
+
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.lookbook-image {
+    height: 650px;
+    overflow: hidden;
+}
+
+.lookbook-image.large {
+    height: 900px;
+}
+
+.lookbook-image img {
+    transition:
+        transform 1.5s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+
+.lookbook-image:hover img {
+    transform: scale(1.035);
+}
+
+.lookbook-image:nth-child(2) {
+    margin-top: 180px;
+}
+
+.lookbook-image:nth-child(3) {
+    grid-column: 2;
+}
+
+
+/* ABOUT */
+
+.about {
+    min-height: 90vh;
+
+    padding: 160px 50px;
+
+    background: #f2f0eb;
+    color: #0a0a0a;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.about-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.about-content {
+    max-width: 900px;
+}
+
+.about-content h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(60px, 9vw, 140px);
+    line-height: 0.82;
+    font-weight: 400;
+    letter-spacing: -5px;
+
+    margin-bottom: 70px;
+}
+
+.about-text {
+    max-width: 480px;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* ADORNARE */
+
+.adornare-link {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 200;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px 18px;
+
+    background: #f2f0eb;
+    color: #0a0a0a;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(0,0,0,0.15);
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.5s ease,
+        padding 0.5s ease;
+}
+
+.adornare-link:hover {
+    transform: translateY(-5px);
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.adornare-small {
+    font-size: 8px;
+    letter-spacing: 2px;
+    opacity: 0.55;
+
+    margin-bottom: 6px;
+}
+
+.adornare-brand {
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
 
 /* MOBILE */
 
@@ -153,4 +402,57 @@ nav a:hover {
         letter-spacing: -3px;
     }
 
+    .scroll-indicator {
+        right: 25px;
+    }
+
+    .collection,
+    .lookbook,
+    .about {
+        padding: 110px 25px;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .image-wrap {
+        height: 550px;
+    }
+
+    .lookbook-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lookbook-image,
+    .lookbook-image.large {
+        height: 600px;
+    }
+
+    .lookbook-image:nth-child(2) {
+        margin-top: 0;
+    }
+
+    .lookbook-image:nth-child(3) {
+        grid-column: auto;
+    }
+
+    .about {
+        display: block;
+    }
+
+    .about-number {
+        margin-bottom: 70px;
+    }
+
+    .about-content h2 {
+        font-size: 65px;
+        letter-spacing: -3px;
+    }
+
+    .adornare-link {
+        right: 15px;
+        bottom: 15px;
+    }
 }
