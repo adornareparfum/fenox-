@@ -1,115 +1,1857 @@
-FONEX
-Koleksiyon
-Lookbook
-Hakkımızda
-FONEX / 2026
-KENDİ
-FORMUNU
-YARAT.
-Sade. Keskin. Zamansız. FONEX, form ve kimlik arasındaki sınırı yeniden yorumlar.
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>FONEX — Form Your Identity</title>
 
-KOLEKSİYONU GÖR ↘
-FONEX
-FORM
-IDENTITY
-STRUCTURE
-FONEX
-FORM
-IDENTITY
-STRUCTURE
-FONEX
-FORM
-IDENTITY
-STRUCTURE
-KOLEKSİYON
-001 — 008
-FNX / 001
-01
-Oversize Ceket
-STRUCTURE / 01
-İNCELE ↗
-FNX / 002
-02
-Deri Ceket
-FORM / 02
-İNCELE ↗
-FNX / 003
-03
-Yapılı Gömlek
-FORM / 03
-İNCELE ↗
-FNX / 004
-04
-Essential Sweatshirt
-IDENTITY / 04
-İNCELE ↗
-FNX / 005
-05
-Minimal Tişört
-ESSENTIAL / 05
-İNCELE ↗
-FNX / 006
-06
-Geniş Kesim Pantolon
-FORM / 06
-İNCELE ↗
-FNX / 007
-07
-Utility Mont
-STRUCTURE / 07
-İNCELE ↗
-FNX / 008
-08
-Urban Overshirt
-IDENTITY / 08
-İNCELE ↗
-FORM
-IDENTITY
-FONEX / EDITORIAL
-STRUCTURE
-PHILOSOPHY
-002
-01 / FORM
-FORM
-Silüeti belirleyen çizgiler, oranlar ve hacimler. FONEX tasarımının başlangıç noktası.
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-02 / IDENTITY
-IDENTITY
-Bir kıyafetin yalnızca ne olduğu değil, onu giyen kişinin nasıl yorumladığı.
+html{
+    scroll-behavior:smooth;
+    background:#080808;
+}
 
-03 / STRUCTURE
-STRUCTURE
-Minimal detayların oluşturduğu güçlü ve dengeli bütünlük.
+body{
+    background:#080808;
+    color:#f5f5f3;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
 
-LOOKBOOK
-003
-LOOK / 01
-MONOCHROME
-LOOK / 02
-STRUCTURE
-LOOK / 03
-FORM
-ARCHIVE
-004
-ARCHIVE / 001
-ARCHIVE / 002
-ARCHIVE / 003
-005 / ABOUT
-LESS
-NOISE.
-MORE
-FORM.
-FONEX, modern giyimin temelini oluşturan form, oran ve kimlik kavramları üzerine kurulu bağımsız bir moda projesidir.
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-Trendleri takip etmek yerine, uzun süre kullanılabilecek güçlü ve sade görsel kimlikler oluşturmayı amaçlar.
+button{
+    font:inherit;
+}
 
-FONEX × ADORNARE
-WEAR
-THE FORM.
-LEAVE
-THE SCENT.
-FONEX'in görsel dünyası ile Adornare'nin koku dünyasının kesiştiği alanı keşfet.
+/* INTRO */
 
-DISCOVER ADORNARE ↗
-FONEX © 2026
-FORM / IDENTITY / STRUCTURE
+.intro{
+    position:fixed;
+    inset:0;
+    background:#080808;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:introHide 1s ease 1.5s forwards;
+}
+
+.intro h1{
+    font-size:clamp(60px,12vw,150px);
+    letter-spacing:-8px;
+    font-weight:500;
+    animation:introLogo 1.4s ease;
+}
+
+@keyframes introLogo{
+    from{
+        opacity:0;
+        transform:scale(.9);
+        letter-spacing:-20px;
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+        letter-spacing:-8px;
+    }
+}
+
+@keyframes introHide{
+    to{
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+    }
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:24px 35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    mix-blend-mode:difference;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:600;
+    letter-spacing:-1px;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    position:relative;
+}
+
+nav a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:1px;
+    background:white;
+    transition:.3s;
+}
+
+nav a:hover:after{
+    width:100%;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    min-height:650px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    padding:45px;
+}
+
+.hero-image{
+    position:absolute;
+    inset:-5%;
+    width:110%;
+    height:110%;
+    object-fit:cover;
+    filter:brightness(.48);
+    transform:scale(1.04);
+    transition:transform 1s ease;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.15) 40%,
+            rgba(0,0,0,.85)
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+}
+
+.kicker{
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:25px;
+    opacity:.7;
+}
+
+.hero h1{
+    font-size:clamp(60px,10vw,155px);
+    line-height:.8;
+    letter-spacing:-8px;
+    font-weight:500;
+}
+
+.hero-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-top:45px;
+    gap:40px;
+}
+
+.hero-text{
+    max-width:350px;
+    font-size:13px;
+    line-height:1.7;
+    color:#bbb;
+}
+
+.hero-button{
+    border:1px solid rgba(255,255,255,.6);
+    padding:15px 24px;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.hero-button:hover{
+    background:white;
+    color:#000;
+}
+
+/* MARQUEE */
+
+.marquee{
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:22px 0;
+}
+
+.marquee-track{
+    display:inline-flex;
+    animation:moveText 22s linear infinite;
+}
+
+.marquee span{
+    margin-right:65px;
+    font-size:12px;
+    letter-spacing:5px;
+}
+
+@keyframes moveText{
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* GENERAL */
+
+.section{
+    padding:140px 45px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:55px;
+}
+
+.section-title{
+    font-size:clamp(48px,7vw,105px);
+    font-weight:400;
+    letter-spacing:-6px;
+}
+
+.section-number{
+    font-size:10px;
+    color:#777;
+    letter-spacing:3px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:3px;
+}
+
+.product{
+    position:relative;
+    height:650px;
+    overflow:hidden;
+    background:#181818;
+    cursor:pointer;
+}
+
+.product img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1),
+        filter .5s ease;
+}
+
+.product:hover img{
+    transform:scale(1.08);
+    filter:brightness(.78);
+}
+
+.product:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.2),
+            transparent 40%,
+            rgba(0,0,0,.7)
+        );
+    pointer-events:none;
+}
+
+.product-info{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.product-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.product-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+}
+
+.product-name{
+    font-size:27px;
+    letter-spacing:-1px;
+}
+
+.product-code{
+    margin-top:8px;
+    font-size:9px;
+    color:#bbb;
+    letter-spacing:2px;
+}
+
+.explore{
+    font-size:9px;
+    letter-spacing:2px;
+    border-bottom:1px solid white;
+    padding-bottom:6px;
+}
+
+/* BIG TYPE */
+
+.big-type{
+    overflow:hidden;
+    padding:100px 0;
+}
+
+.big-type div{
+    font-size:clamp(90px,17vw,250px);
+    line-height:.75;
+    letter-spacing:-14px;
+    white-space:nowrap;
+    color:#161616;
+}
+
+.big-type div:nth-child(2){
+    text-align:right;
+    color:#202020;
+}
+
+/* EDITORIAL */
+
+.editorial{
+    height:90vh;
+    min-height:600px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.editorial img{
+    position:absolute;
+    width:110%;
+    height:110%;
+    object-fit:cover;
+    filter:brightness(.45);
+    transform:scale(1.08);
+    transition:transform 1.2s ease;
+}
+
+.editorial-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.25);
+}
+
+.editorial-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.editorial-content span{
+    font-size:10px;
+    letter-spacing:5px;
+}
+
+.editorial-content h2{
+    margin-top:25px;
+    font-size:clamp(55px,12vw,180px);
+    letter-spacing:-9px;
+    font-weight:400;
+}
+
+/* PHILOSOPHY */
+
+.philosophy{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3px;
+}
+
+.philosophy-card{
+    min-height:450px;
+    padding:30px;
+    background:#151515;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.philosophy-card small{
+    color:#777;
+    letter-spacing:2px;
+}
+
+.philosophy-card h3{
+    font-size:40px;
+    font-weight:400;
+    letter-spacing:-2px;
+}
+
+.philosophy-card p{
+    max-width:330px;
+    color:#999;
+    font-size:12px;
+    line-height:1.8;
+}
+
+/* LOOKBOOK */
+
+.lookbook{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:3px;
+}
+
+.look{
+    position:relative;
+    overflow:hidden;
+    min-height:600px;
+    background:#151515;
+}
+
+.look img{
+    width:100%;
+    height:100%;
+    position:absolute;
+    inset:0;
+    object-fit:cover;
+    transition:transform 1s ease;
+    filter:brightness(.65);
+}
+
+.look:hover img{
+    transform:scale(1.06);
+}
+
+.look-side{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:3px;
+}
+
+.look-side .look{
+    min-height:298px;
+}
+
+.look-info{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.look-info span{
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+/* ARCHIVE */
+
+.archive{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3px;
+}
+
+.archive-item{
+    height:430px;
+    overflow:hidden;
+    position:relative;
+    background:#151515;
+}
+
+.archive-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:grayscale(100%);
+    transition:.8s;
+}
+
+.archive-item:hover img{
+    transform:scale(1.06);
+    filter:grayscale(20%);
+}
+
+.archive-item span{
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    z-index:2;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+/* ABOUT */
+
+.about{
+    min-height:75vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
+    align-items:center;
+}
+
+.about h2{
+    margin-top:20px;
+    font-size:clamp(55px,8vw,120px);
+    line-height:.82;
+    letter-spacing:-7px;
+    font-weight:400;
+}
+
+.about-copy{
+    max-width:450px;
+}
+
+.about-copy p{
+    color:#aaa;
+    font-size:13px;
+    line-height:2;
+    margin-bottom:30px;
+}
+
+/* ADORNARE */
+
+.adornare{
+    background:#efede7;
+    color:#111;
+    padding:160px 45px;
+}
+
+.adornare-inner{
+    max-width:1200px;
+    margin:auto;
+}
+
+.adornare-label{
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:35px;
+}
+
+.adornare h2{
+    font-size:clamp(60px,10vw,150px);
+    line-height:.82;
+    letter-spacing:-8px;
+    font-weight:400;
+}
+
+.adornare p{
+    max-width:420px;
+    margin:45px 0;
+    color:#555;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.adornare-link{
+    display:inline-block;
+    border-bottom:1px solid #111;
+    padding-bottom:8px;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #222;
+    padding:30px 45px;
+    display:flex;
+    justify-content:space-between;
+}
+
+footer span{
+    font-size:9px;
+    color:#777;
+    letter-spacing:2px;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    z-index:9000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(1100px,100%);
+    max-height:90vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:#151515;
+    overflow:hidden;
+}
+
+.modal-image{
+    min-height:600px;
+}
+
+.modal-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.modal-content{
+    padding:45px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.close{
+    align-self:flex-end;
+    border:0;
+    background:none;
+    color:white;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.modal-code{
+    color:#777;
+    font-size:10px;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.modal-title{
+    font-size:clamp(40px,5vw,70px);
+    line-height:.9;
+    letter-spacing:-4px;
+    font-weight:400;
+}
+
+.modal-description{
+    color:#999;
+    font-size:13px;
+    line-height:1.8;
+    max-width:400px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        padding:20px;
+    }
+
+    nav{
+        gap:13px;
+    }
+
+    nav a{
+        font-size:8px;
+        letter-spacing:1px;
+    }
+
+    .hero{
+        padding:25px;
+        min-height:650px;
+    }
+
+    .hero h1{
+        font-size:17vw;
+        letter-spacing:-5px;
+    }
+
+    .hero-bottom{
+        display:block;
+    }
+
+    .hero-text{
+        margin-bottom:25px;
+    }
+
+    .section{
+        padding:90px 20px;
+    }
+
+    .section-title{
+        font-size:48px;
+        letter-spacing:-4px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .product{
+        height:530px;
+    }
+
+    .big-type div{
+        font-size:27vw;
+        letter-spacing:-7px;
+    }
+
+    .editorial{
+        height:70vh;
+    }
+
+    .editorial-content h2{
+        font-size:18vw;
+        letter-spacing:-5px;
+    }
+
+    .philosophy{
+        grid-template-columns:1fr;
+    }
+
+    .lookbook{
+        grid-template-columns:1fr;
+    }
+
+    .look{
+        min-height:500px;
+    }
+
+    .look-side{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:none;
+    }
+
+    .look-side .look{
+        min-height:350px;
+    }
+
+    .archive{
+        grid-template-columns:1fr;
+    }
+
+    .archive-item{
+        height:380px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .about h2{
+        font-size:68px;
+        letter-spacing:-5px;
+    }
+
+    .adornare{
+        padding:100px 25px;
+    }
+
+    .adornare h2{
+        font-size:18vw;
+        letter-spacing:-5px;
+    }
+
+    footer{
+        padding:25px 20px;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .modal{
+        padding:12px;
+    }
+
+    .modal-box{
+        grid-template-columns:1fr;
+        max-height:95vh;
+        overflow:auto;
+    }
+
+    .modal-image{
+        min-height:320px;
+        height:45vh;
+    }
+
+    .modal-content{
+        padding:25px;
+        min-height:330px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div class="intro">
+    <h1>FONEX</h1>
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <a href="#" class="logo">FONEX</a>
+
+    <nav>
+        <a href="#collection">Koleksiyon</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#about">Hakkımızda</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=90"
+        alt="FONEX editorial fashion"
+        onerror="this.style.display='none'"
+    >
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="kicker">
+            FONEX / 2026
+        </div>
+
+        <h1>
+            KENDİ<br>
+            FORMUNU<br>
+            YARAT.
+        </h1>
+
+        <div class="hero-bottom">
+
+            <p class="hero-text">
+                Sade. Keskin. Zamansız.
+                FONEX, form ve kimlik arasındaki
+                sınırı yeniden yorumlar.
+            </p>
+
+            <a href="#collection" class="hero-button">
+                KOLEKSİYONU GÖR ↘
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>FONEX</span>
+        <span>FORM</span>
+        <span>IDENTITY</span>
+        <span>STRUCTURE</span>
+        <span>FONEX</span>
+        <span>FORM</span>
+        <span>IDENTITY</span>
+        <span>STRUCTURE</span>
+        <span>FONEX</span>
+        <span>FORM</span>
+        <span>IDENTITY</span>
+        <span>STRUCTURE</span>
+
+    </div>
+
+</div>
+
+
+<!-- COLLECTION -->
+
+<section class="section" id="collection">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            KOLEKSİYON
+        </h2>
+
+        <span class="section-number">
+            001 — 008
+        </span>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <article
+            class="product"
+            data-title="OVERSIZE CEKET"
+            data-code="FNX / 001"
+            data-description="Keskin omuz hattı ve rahat silüeti bir araya getiren FONEX oversize ceket."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85"
+                alt="Oversize Ceket"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 001</span>
+                    <span>01</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Oversize Ceket
+                        </div>
+
+                        <div class="product-code">
+                            STRUCTURE / 01
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="DERİ CEKET"
+            data-code="FNX / 002"
+            data-description="Minimal yüzey, güçlü silüet ve zamansız bir dış katman."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
+                alt="Deri Ceket"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 002</span>
+                    <span>02</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Deri Ceket
+                        </div>
+
+                        <div class="product-code">
+                            FORM / 02
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="YAPILI GÖMLEK"
+            data-code="FNX / 003"
+            data-description="Klasik gömlek formunun daha geometrik ve modern yorumu."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=1200&q=85"
+                alt="Yapılı Gömlek"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 003</span>
+                    <span>03</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Yapılı Gömlek
+                        </div>
+
+                        <div class="product-code">
+                            FORM / 03
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="ESSENTIAL SWEATSHIRT"
+            data-code="FNX / 004"
+            data-description="Günlük kullanım için sadeleştirilmiş, temiz ve dengeli bir silüet."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=1200&q=85"
+                alt="Essential Sweatshirt"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 004</span>
+                    <span>04</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Essential Sweatshirt
+                        </div>
+
+                        <div class="product-code">
+                            IDENTITY / 04
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="MİNİMAL TİŞÖRT"
+            data-code="FNX / 005"
+            data-description="Gereksiz detaylardan arındırılmış temel parça."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85"
+                alt="Minimal Tişört"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 005</span>
+                    <span>05</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Minimal Tişört
+                        </div>
+
+                        <div class="product-code">
+                            ESSENTIAL / 05
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="GENİŞ KESİM PANTOLON"
+            data-code="FNX / 006"
+            data-description="Akışkan kumaş yapısı ve geniş kesimiyle hareket odaklı tasarım."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1200&q=85"
+                alt="Geniş Kesim Pantolon"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 006</span>
+                    <span>06</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Geniş Kesim Pantolon
+                        </div>
+
+                        <div class="product-code">
+                            FORM / 06
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="UTILITY MONT"
+            data-code="FNX / 007"
+            data-description="Fonksiyonel detayları sade bir dış görünüşle birleştiren mont."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=1200&q=85"
+                alt="Utility Mont"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 007</span>
+                    <span>07</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Utility Mont
+                        </div>
+
+                        <div class="product-code">
+                            STRUCTURE / 07
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="product"
+            data-title="URBAN OVERSHIRT"
+            data-code="FNX / 008"
+            data-description="Gömlek ve ceket arasındaki çizgide duran çok yönlü şehir katmanı."
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85"
+                alt="Urban Overshirt"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <span>FNX / 008</span>
+                    <span>08</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div>
+                        <div class="product-name">
+                            Urban Overshirt
+                        </div>
+
+                        <div class="product-code">
+                            IDENTITY / 08
+                        </div>
+                    </div>
+
+                    <div class="explore">
+                        İNCELE ↗
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- BIG TYPE -->
+
+<section class="big-type">
+
+    <div>FORM</div>
+    <div>IDENTITY</div>
+
+</section>
+
+
+<!-- EDITORIAL -->
+
+<section class="editorial">
+
+    <img
+        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2200&q=90"
+        alt="FONEX Editorial"
+        onerror="this.style.display='none'"
+    >
+
+    <div class="editorial-overlay"></div>
+
+    <div class="editorial-content">
+
+        <span>FONEX / EDITORIAL</span>
+
+        <h2>STRUCTURE</h2>
+
+    </div>
+
+</section>
+
+
+<!-- PHILOSOPHY -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            PHILOSOPHY
+        </h2>
+
+        <span class="section-number">
+            002
+        </span>
+
+    </div>
+
+    <div class="philosophy">
+
+        <div class="philosophy-card">
+
+            <small>01 / FORM</small>
+
+            <h3>FORM</h3>
+
+            <p>
+                Silüeti belirleyen çizgiler,
+                oranlar ve hacimler.
+                FONEX tasarımının başlangıç noktası.
+            </p>
+
+        </div>
+
+        <div class="philosophy-card">
+
+            <small>02 / IDENTITY</small>
+
+            <h3>IDENTITY</h3>
+
+            <p>
+                Bir kıyafetin yalnızca ne olduğu değil,
+                onu giyen kişinin nasıl yorumladığı.
+            </p>
+
+        </div>
+
+        <div class="philosophy-card">
+
+            <small>03 / STRUCTURE</small>
+
+            <h3>STRUCTURE</h3>
+
+            <p>
+                Minimal detayların oluşturduğu
+                güçlü ve dengeli bütünlük.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOOKBOOK -->
+
+<section class="section" id="lookbook">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            LOOKBOOK
+        </h2>
+
+        <span class="section-number">
+            003
+        </span>
+
+    </div>
+
+    <div class="lookbook">
+
+        <div class="look">
+
+            <img
+                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1500&q=85"
+                alt="Lookbook 01"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="look-info">
+
+                <span>LOOK / 01</span>
+                <span>MONOCHROME</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="look-side">
+
+            <div class="look">
+
+                <img
+                    src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Lookbook 02"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="look-info">
+
+                    <span>LOOK / 02</span>
+                    <span>STRUCTURE</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="look">
+
+                <img
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85"
+                    alt="Lookbook 03"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="look-info">
+
+                    <span>LOOK / 03</span>
+                    <span>FORM</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ARCHIVE -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            ARCHIVE
+        </h2>
+
+        <span class="section-number">
+            004
+        </span>
+
+    </div>
+
+    <div class="archive">
+
+        <div class="archive-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85"
+                alt="FONEX Archive 01"
+                onerror="this.style.display='none'"
+            >
+
+            <span>ARCHIVE / 001</span>
+
+        </div>
+
+        <div class="archive-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85"
+                alt="FONEX Archive 02"
+                onerror="this.style.display='none'"
+            >
+
+            <span>ARCHIVE / 002</span>
+
+        </div>
+
+        <div class="archive-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
+                alt="FONEX Archive 03"
+                onerror="this.style.display='none'"
+            >
+
+            <span>ARCHIVE / 003</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section about" id="about">
+
+    <div>
+
+        <div class="section-number">
+            005 / ABOUT
+        </div>
+
+        <h2>
+            LESS<br>
+            NOISE.<br>
+            MORE<br>
+            FORM.
+        </h2>
+
+    </div>
+
+    <div class="about-copy">
+
+        <p>
+            FONEX, modern giyimin temelini oluşturan
+            form, oran ve kimlik kavramları üzerine
+            kurulu bağımsız bir moda projesidir.
+        </p>
+
+        <p>
+            Trendleri takip etmek yerine,
+            uzun süre kullanılabilecek güçlü ve
+            sade görsel kimlikler oluşturmayı amaçlar.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ADORNARE -->
+
+<section class="adornare">
+
+    <div class="adornare-inner">
+
+        <div class="adornare-label">
+            FONEX × ADORNARE
+        </div>
+
+        <h2>
+            WEAR<br>
+            THE FORM.<br>
+            LEAVE<br>
+            THE SCENT.
+        </h2>
+
+        <p>
+            FONEX'in görsel dünyası ile
+            Adornare'nin koku dünyasının
+            kesiştiği alanı keşfet.
+        </p>
+
+        <a
+            class="adornare-link"
+            href="https://adornareparfum.adornareparfum.workers.dev"
+            target="_blank"
+        >
+            DISCOVER ADORNARE ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <span>FONEX © 2026</span>
+
+    <span>FORM / IDENTITY / STRUCTURE</span>
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-image">
+
+            <img id="modalImg" src="" alt="FONEX product">
+
+        </div>
+
+        <div class="modal-content">
+
+            <button class="close" id="close">
+                CLOSE ×
+            </button>
+
+            <div>
+
+                <div class="modal-code" id="modalCode">
+                    FNX / 001
+                </div>
+
+                <h2 class="modal-title" id="modalTitle">
+                    OVERSIZE CEKET
+                </h2>
+
+            </div>
+
+            <p class="modal-description" id="modalDescription">
+                Ürün açıklaması.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* HERO PARALLAX */
+
+const heroImage = document.querySelector(".hero-image");
+
+window.addEventListener("scroll", () => {
+
+    if(heroImage && window.scrollY < window.innerHeight){
+
+        heroImage.style.transform =
+            `scale(1.04) translateY(${window.scrollY * .12}px)`;
+
+    }
+
+});
+
+
+/* EDITORIAL PARALLAX */
+
+const editorialImage =
+    document.querySelector(".editorial img");
+
+window.addEventListener("scroll", () => {
+
+    if(!editorialImage) return;
+
+    const section =
+        document.querySelector(".editorial");
+
+    const rect =
+        section.getBoundingClientRect();
+
+    const movement =
+        (window.innerHeight / 2 - rect.top) * .06;
+
+    editorialImage.style.transform =
+        `scale(1.08) translateY(${movement}px)`;
+
+});
+
+
+/* PRODUCT MOUSE MOVEMENT */
+
+document.querySelectorAll(".product").forEach(product => {
+
+    const image = product.querySelector("img");
+
+    product.addEventListener("mousemove", e => {
+
+        if(window.innerWidth <= 700) return;
+
+        const rect =
+            product.getBoundingClientRect();
+
+        const x =
+            (e.clientX - rect.left) / rect.width - .5;
+
+        const y =
+            (e.clientY - rect.top) / rect.height - .5;
+
+        image.style.transform =
+            `scale(1.08) translate(${x * 16}px, ${y * 16}px)`;
+
+    });
+
+    product.addEventListener("mouseleave", () => {
+
+        image.style.transform = "";
+
+    });
+
+});
+
+
+/* PRODUCT MODAL */
+
+const modal =
+    document.getElementById("modal");
+
+const modalImg =
+    document.getElementById("modalImg");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalCode =
+    document.getElementById("modalCode");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+document.querySelectorAll(".product").forEach(product => {
+
+    product.addEventListener("click", () => {
+
+        const image =
+            product.querySelector("img");
+
+        modalImg.src = image.src;
+
+        modalTitle.textContent =
+            product.dataset.title;
+
+        modalCode.textContent =
+            product.dataset.code;
+
+        modalDescription.textContent =
+            product.dataset.description;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+document
+    .getElementById("close")
+    .addEventListener("click", closeModal);
+
+modal.addEventListener("click", e => {
+
+    if(e.target === modal){
+
+        closeModal();
+
+    }
+
+});
+
+document.addEventListener("keydown", e => {
+
+    if(e.key === "Escape"){
+
+        closeModal();
+
+    }
+
+});
+
+
+/* LOOKBOOK PARALLAX */
+
+document.querySelectorAll(".look").forEach(look => {
+
+    const image =
+        look.querySelector("img");
+
+    look.addEventListener("mousemove", e => {
+
+        if(window.innerWidth <= 700) return;
+
+        const rect =
+            look.getBoundingClientRect();
+
+        const x =
+            (e.clientX - rect.left) / rect.width - .5;
+
+        const y =
+            (e.clientY - rect.top) / rect.height - .5;
+
+        image.style.transform =
+            `scale(1.06) translate(${x * 12}px,${y * 12}px)`;
+
+    });
+
+    look.addEventListener("mouseleave", () => {
+
+        image.style.transform = "";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
