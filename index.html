@@ -699,6 +699,14 @@ footer span{
     max-width:400px;
 }
 
+<style id="fonex-commerce-css">
+.bag-trigger{background:none;border:0;color:#fff;font:inherit;font-size:10px;letter-spacing:2px;cursor:pointer;margin-left:18px}.bag-trigger span{display:inline-flex;min-width:18px;height:18px;border:1px solid #555;border-radius:50%;align-items:center;justify-content:center;font-size:8px;margin-left:5px}
+.modal-collection{margin-top:14px;color:#666;font-size:9px;letter-spacing:3px}.purchase-area{margin-top:28px}.price{font-size:28px;margin-bottom:24px}.size-label{font-size:9px;letter-spacing:3px;color:#777;margin-bottom:10px}.sizes{display:flex;gap:6px;margin-bottom:18px}.sizes button{background:transparent;color:#fff;border:1px solid #333;width:45px;height:40px;font-size:10px;cursor:pointer}.sizes button.active,.sizes button:hover{border-color:#fff}.add-bag,.checkout-btn{width:100%;border:1px solid #fff;background:#fff;color:#000;padding:17px;font-size:10px;letter-spacing:2px;cursor:pointer}.add-bag span{float:right}
+.cart-drawer{position:fixed;z-index:10000;right:0;top:0;height:100vh;width:min(460px,100%);background:#111;color:#fff;transform:translateX(100%);transition:.35s;display:flex;flex-direction:column;padding:28px}.cart-drawer.active{transform:translateX(0)}.cart-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;opacity:0;pointer-events:none;transition:.3s}.cart-backdrop.active{opacity:1;pointer-events:auto}.cart-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:3px;border-bottom:1px solid #222;padding-bottom:20px}.cart-head button{background:none;border:0;color:#777;font-size:9px;letter-spacing:2px;cursor:pointer}.cart-items{overflow:auto;flex:1}.cart-empty{color:#555;font-size:10px;letter-spacing:2px;margin-top:30px}.cart-item{display:grid;grid-template-columns:75px 1fr auto;gap:14px;padding:18px 0;border-bottom:1px solid #222}.cart-item img{width:75px;height:95px;object-fit:cover}.cart-item-name{font-size:11px;margin-bottom:8px}.cart-item-meta{font-size:8px;color:#666;line-height:1.8}.cart-item-price{font-size:11px}.qty{display:flex;gap:10px;align-items:center;margin-top:10px}.qty button{background:none;border:1px solid #333;color:#fff;width:24px;height:24px;cursor:pointer}.remove{background:none;border:0;color:#555;font-size:8px;cursor:pointer;margin-top:8px}.cart-footer{border-top:1px solid #222;padding-top:20px}.cart-total,.checkout-summary{display:flex;justify-content:space-between;margin-bottom:18px;font-size:10px;letter-spacing:2px}.cart-total strong,.checkout-summary strong{font-size:16px;letter-spacing:0}
+.checkout-modal{position:fixed;z-index:11000;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;overflow:auto}.checkout-modal.active{display:flex}.checkout-box{background:#151515;width:min(600px,100%);padding:40px}.checkout-title{font-size:clamp(40px,7vw,70px);line-height:.88;letter-spacing:-4px;font-weight:400;margin:30px 0}.checkout-box form{display:grid;gap:10px}.checkout-box input,.checkout-box textarea{background:#0d0d0d;border:1px solid #292929;color:#fff;padding:16px;font:inherit;font-size:10px;letter-spacing:1px;outline:none}.checkout-box textarea{min-height:110px;resize:vertical}.payment-note{color:#555;font-size:9px;line-height:1.7;margin-top:15px}
+@media(max-width:700px){.bag-trigger{margin-left:0}.modal-box{grid-template-columns:1fr;max-height:94vh;overflow:auto}.modal-image{min-height:300px;height:300px}.modal-content{padding:25px}.cart-drawer{padding:20px}.checkout-box{padding:25px}}
+</style>
+
 /* MOBILE */
 
 @media(max-width:700px){
@@ -862,7 +870,7 @@ footer span{
         <a href="#lookbook">Lookbook</a>
         <a href="#about">Hakkımızda</a>
     </nav>
-
+<button class="bag-trigger" id="bagTrigger">BAG <span id="bagCount">0</span></button>
 </header>
 
 
@@ -957,7 +965,7 @@ footer span{
         <article
             class="product"
             data-title="OVERSIZE CEKET"
-            data-code="FNX / 001"
+            data-code="FNX / 001" data-price="2490"
             data-description="Keskin omuz hattı ve rahat silüeti bir araya getiren FONEX oversize ceket."
         >
 
@@ -1000,7 +1008,7 @@ footer span{
         <article
             class="product"
             data-title="DERİ CEKET"
-            data-code="FNX / 002"
+            data-code="FNX / 002" data-price="3290"
             data-description="Minimal yüzey, güçlü silüet ve zamansız bir dış katman."
         >
 
@@ -1043,7 +1051,7 @@ footer span{
         <article
             class="product"
             data-title="YAPILI GÖMLEK"
-            data-code="FNX / 003"
+            data-code="FNX / 003" data-price="1890"
             data-description="Klasik gömlek formunun daha geometrik ve modern yorumu."
         >
 
@@ -1086,7 +1094,7 @@ footer span{
         <article
             class="product"
             data-title="ESSENTIAL SWEATSHIRT"
-            data-code="FNX / 004"
+            data-code="FNX / 004" data-price="1490"
             data-description="Günlük kullanım için sadeleştirilmiş, temiz ve dengeli bir silüet."
         >
 
@@ -1129,7 +1137,7 @@ footer span{
         <article
             class="product"
             data-title="MİNİMAL TİŞÖRT"
-            data-code="FNX / 005"
+            data-code="FNX / 005" data-price="990"
             data-description="Gereksiz detaylardan arındırılmış temel parça."
         >
 
@@ -1172,7 +1180,7 @@ footer span{
         <article
             class="product"
             data-title="GENİŞ KESİM PANTOLON"
-            data-code="FNX / 006"
+            data-code="FNX / 006" data-price="1790"
             data-description="Akışkan kumaş yapısı ve geniş kesimiyle hareket odaklı tasarım."
         >
 
@@ -1215,7 +1223,7 @@ footer span{
         <article
             class="product"
             data-title="UTILITY MONT"
-            data-code="FNX / 007"
+            data-code="FNX / 007" data-price="2790"
             data-description="Fonksiyonel detayları sade bir dış görünüşle birleştiren mont."
         >
 
@@ -1258,7 +1266,7 @@ footer span{
         <article
             class="product"
             data-title="URBAN OVERSHIRT"
-            data-code="FNX / 008"
+            data-code="FNX / 008" data-price="1990"
             data-description="Gömlek ve ceket arasındaki çizgide duran çok yönlü şehir katmanı."
         >
 
@@ -1626,231 +1634,39 @@ footer span{
 <!-- MODAL -->
 
 <div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <div class="modal-image">
-
-            <img id="modalImg" src="" alt="FONEX product">
-
-        </div>
-
-        <div class="modal-content">
-
-            <button class="close" id="close">
-                CLOSE ×
-            </button>
-
-            <div>
-
-                <div class="modal-code" id="modalCode">
-                    FNX / 001
-                </div>
-
-                <h2 class="modal-title" id="modalTitle">
-                    OVERSIZE CEKET
-                </h2>
-
-            </div>
-
-            <p class="modal-description" id="modalDescription">
-                Ürün açıklaması.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
+<div class="modal-box"><div class="modal-image"><img id="modalImg" src="" alt="FONEX product"></div>
+<div class="modal-content"><button class="close" id="close">CLOSE ×</button>
+<div><div class="modal-code" id="modalCode"></div><h2 class="modal-title" id="modalTitle"></h2><div class="modal-collection" id="modalCollection"></div></div>
+<p class="modal-description" id="modalDescription"></p>
+<div class="purchase-area"><div class="price" id="modalPrice"></div><div class="size-label">BEDEN</div>
+<div class="sizes" id="sizes"><button data-size="XS">XS</button><button data-size="S">S</button><button data-size="M">M</button><button data-size="L">L</button><button data-size="XL">XL</button></div>
+<button class="add-bag" id="addBag">ADD TO BAG <span>↗</span></button></div></div></div></div>
+<div class="cart-drawer" id="cartDrawer"><div class="cart-head"><span>YOUR BAG</span><button id="cartClose">CLOSE ×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-empty" id="cartEmpty">BAG ŞU ANDA BOŞ.</div><div class="cart-footer"><div class="cart-total"><span>TOPLAM</span><strong id="cartTotal">₺0</strong></div><button class="checkout-btn" id="checkoutBtn">CHECKOUT ↗</button></div></div>
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<div class="checkout-modal" id="checkoutModal"><div class="checkout-box"><button class="close" id="checkoutClose">CLOSE ×</button><div class="modal-code">FONEX / CHECKOUT</div><h2 class="checkout-title">SİPARİŞ<br>DETAYLARI.</h2>
+<form id="checkoutForm"><input required name="name" placeholder="AD SOYAD"><input required type="email" name="email" placeholder="E-POSTA"><input required name="phone" placeholder="TELEFON"><textarea required name="address" placeholder="TESLİMAT ADRESİ"></textarea><div class="checkout-summary"><span>ÖDENECEK</span><strong id="checkoutTotal">₺0</strong></div><button class="add-bag" type="submit">SİPARİŞİ OLUŞTUR ↗</button></form>
+<p class="payment-note">Gerçek kart ödemesi için iyzico, PayTR veya Stripe gibi bir ödeme sağlayıcısı bağlanmalıdır.</p></div></div>
 
 <script>
-
-/* HERO PARALLAX */
-
-const heroImage = document.querySelector(".hero-image");
-
-window.addEventListener("scroll", () => {
-
-    if(heroImage && window.scrollY < window.innerHeight){
-
-        heroImage.style.transform =
-            `scale(1.04) translateY(${window.scrollY * .12}px)`;
-
-    }
-
-});
-
-
-/* EDITORIAL PARALLAX */
-
-const editorialImage =
-    document.querySelector(".editorial img");
-
-window.addEventListener("scroll", () => {
-
-    if(!editorialImage) return;
-
-    const section =
-        document.querySelector(".editorial");
-
-    const rect =
-        section.getBoundingClientRect();
-
-    const movement =
-        (window.innerHeight / 2 - rect.top) * .06;
-
-    editorialImage.style.transform =
-        `scale(1.08) translateY(${movement}px)`;
-
-});
-
-
-/* PRODUCT MOUSE MOVEMENT */
-
-document.querySelectorAll(".product").forEach(product => {
-
-    const image = product.querySelector("img");
-
-    product.addEventListener("mousemove", e => {
-
-        if(window.innerWidth <= 700) return;
-
-        const rect =
-            product.getBoundingClientRect();
-
-        const x =
-            (e.clientX - rect.left) / rect.width - .5;
-
-        const y =
-            (e.clientY - rect.top) / rect.height - .5;
-
-        image.style.transform =
-            `scale(1.08) translate(${x * 16}px, ${y * 16}px)`;
-
-    });
-
-    product.addEventListener("mouseleave", () => {
-
-        image.style.transform = "";
-
-    });
-
-});
-
-
-/* PRODUCT MODAL */
-
-const modal =
-    document.getElementById("modal");
-
-const modalImg =
-    document.getElementById("modalImg");
-
-const modalTitle =
-    document.getElementById("modalTitle");
-
-const modalCode =
-    document.getElementById("modalCode");
-
-const modalDescription =
-    document.getElementById("modalDescription");
-
-document.querySelectorAll(".product").forEach(product => {
-
-    product.addEventListener("click", () => {
-
-        const image =
-            product.querySelector("img");
-
-        modalImg.src = image.src;
-
-        modalTitle.textContent =
-            product.dataset.title;
-
-        modalCode.textContent =
-            product.dataset.code;
-
-        modalDescription.textContent =
-            product.dataset.description;
-
-        modal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
-
-
-/* CLOSE MODAL */
-
-function closeModal(){
-
-    modal.classList.remove("active");
-
-    document.body.style.overflow = "";
-
-}
-
-document
-    .getElementById("close")
-    .addEventListener("click", closeModal);
-
-modal.addEventListener("click", e => {
-
-    if(e.target === modal){
-
-        closeModal();
-
-    }
-
-});
-
-document.addEventListener("keydown", e => {
-
-    if(e.key === "Escape"){
-
-        closeModal();
-
-    }
-
-});
-
-
-/* LOOKBOOK PARALLAX */
-
-document.querySelectorAll(".look").forEach(look => {
-
-    const image =
-        look.querySelector("img");
-
-    look.addEventListener("mousemove", e => {
-
-        if(window.innerWidth <= 700) return;
-
-        const rect =
-            look.getBoundingClientRect();
-
-        const x =
-            (e.clientX - rect.left) / rect.width - .5;
-
-        const y =
-            (e.clientY - rect.top) / rect.height - .5;
-
-        image.style.transform =
-            `scale(1.06) translate(${x * 12}px,${y * 12}px)`;
-
-    });
-
-    look.addEventListener("mouseleave", () => {
-
-        image.style.transform = "";
-
-    });
-
-});
-
+const heroImage=document.querySelector(".hero-image");window.addEventListener("scroll",()=>{if(heroImage&&scrollY<innerHeight)heroImage.style.transform=`scale(1.04) translateY(${scrollY*.12}px)`});
+const editorialImage=document.querySelector(".editorial img");window.addEventListener("scroll",()=>{if(!editorialImage)return;const r=document.querySelector(".editorial").getBoundingClientRect();editorialImage.style.transform=`scale(1.08) translateY(${(innerHeight/2-r.top)*.06}px)`});
+document.querySelectorAll(".product").forEach(p=>{const im=p.querySelector("img");p.addEventListener("mousemove",e=>{if(innerWidth<=700)return;const r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;im.style.transform=`scale(1.08) translate(${x*16}px,${y*16}px)`});p.addEventListener("mouseleave",()=>im.style.transform="")});
+const modal=document.getElementById("modal"),modalImg=document.getElementById("modalImg"),modalTitle=document.getElementById("modalTitle"),modalCode=document.getElementById("modalCode"),modalDescription=document.getElementById("modalDescription"),modalPrice=document.getElementById("modalPrice"),modalCollection=document.getElementById("modalCollection");let selectedProduct=null,selectedSize="";
+function openProduct(p){selectedProduct=p;selectedSize="";const im=p.querySelector("img");modalImg.src=im.src;modalTitle.textContent=p.dataset.title;modalCode.textContent=p.dataset.code;modalDescription.textContent=p.dataset.description;modalPrice.textContent="₺"+Number(p.dataset.price).toLocaleString("tr-TR");modalCollection.textContent=p.querySelector(".product-code")?.textContent.trim()||"FONEX";document.querySelectorAll(".sizes button").forEach(b=>b.classList.remove("active"));modal.classList.add("active");document.body.style.overflow="hidden"}
+document.querySelectorAll(".product").forEach(p=>p.addEventListener("click",()=>openProduct(p)));
+document.querySelectorAll(".sizes button").forEach(b=>b.addEventListener("click",()=>{selectedSize=b.dataset.size;document.querySelectorAll(".sizes button").forEach(x=>x.classList.remove("active"));b.classList.add("active")}));
+function closeModal(){modal.classList.remove("active");document.body.style.overflow=""}document.getElementById("close").addEventListener("click",closeModal);modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+let cart=JSON.parse(localStorage.getItem("fonexCart")||"[]");const drawer=document.getElementById("cartDrawer"),backdrop=document.getElementById("cartBackdrop");
+function saveCart(){localStorage.setItem("fonexCart",JSON.stringify(cart));renderCart()}function openCart(){drawer.classList.add("active");backdrop.classList.add("active");renderCart()}function closeCart(){drawer.classList.remove("active");backdrop.classList.remove("active")}
+function addToBag(){if(!selectedSize){alert("Lütfen bir beden seçin.");return}const item={id:selectedProduct.dataset.code,size:selectedSize,title:selectedProduct.dataset.title,code:selectedProduct.dataset.code,price:+selectedProduct.dataset.price,image:selectedProduct.querySelector("img").src,qty:1};const old=cart.find(x=>x.id===item.id&&x.size===item.size);old?old.qty++:cart.push(item);saveCart();closeModal();openCart()}
+document.getElementById("addBag").addEventListener("click",addToBag);document.getElementById("bagTrigger").addEventListener("click",openCart);document.getElementById("cartClose").addEventListener("click",closeCart);backdrop.addEventListener("click",closeCart);
+function renderCart(){const box=document.getElementById("cartItems"),empty=document.getElementById("cartEmpty"),count=cart.reduce((a,x)=>a+x.qty,0),total=cart.reduce((a,x)=>a+x.price*x.qty,0);document.getElementById("bagCount").textContent=count;document.getElementById("cartTotal").textContent="₺"+total.toLocaleString("tr-TR");document.getElementById("checkoutTotal").textContent="₺"+total.toLocaleString("tr-TR");if(!cart.length){box.innerHTML="";empty.style.display="block";return}empty.style.display="none";box.innerHTML=cart.map((x,i)=>`<div class="cart-item"><img src="${x.image}"><div><div class="cart-item-name">${x.title}</div><div class="cart-item-meta">${x.code}<br>BEDEN: ${x.size}</div><div class="qty"><button onclick="changeQty(${i},-1)">−</button><span>${x.qty}</span><button onclick="changeQty(${i},1)">+</button></div><button class="remove" onclick="removeItem(${i})">KALDIR</button></div><div class="cart-item-price">₺${(x.price*x.qty).toLocaleString("tr-TR")}</div></div>`).join("")}
+function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);saveCart()}function removeItem(i){cart.splice(i,1);saveCart()}
+const checkout=document.getElementById("checkoutModal");document.getElementById("checkoutBtn").addEventListener("click",()=>{if(!cart.length){alert("Sepetiniz boş.");return}checkout.classList.add("active");closeCart()});document.getElementById("checkoutClose").addEventListener("click",()=>checkout.classList.remove("active"));
+document.getElementById("checkoutForm").addEventListener("submit",e=>{e.preventDefault();alert("Sipariş bilgileriniz hazırlandı. Gerçek ödeme için ödeme sağlayıcısı bağlantısı gereklidir.");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeCart();checkout.classList.remove("active")}});
+document.querySelectorAll(".look").forEach(look=>{const im=look.querySelector("img");look.addEventListener("mousemove",e=>{if(innerWidth<=700)return;const r=look.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;im.style.transform=`scale(1.06) translate(${x*12}px,${y*12}px)`});look.addEventListener("mouseleave",()=>im.style.transform="")});
+renderCart();
 </script>
 
 </body>
