@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
+
 <title>FONEX — Form Your Identity</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,13 +16,12 @@
 
 html{
     scroll-behavior:smooth;
-    background:#080808;
 }
 
 body{
-    background:#080808;
-    color:#f5f5f3;
-    font-family:Arial,Helvetica,sans-serif;
+    background:#050505;
+    color:#f2f2f2;
+    font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
 
@@ -31,7 +31,7 @@ a{
 }
 
 button{
-    font:inherit;
+    font-family:inherit;
 }
 
 /* INTRO */
@@ -39,39 +39,38 @@ button{
 .intro{
     position:fixed;
     inset:0;
-    background:#080808;
+    background:#050505;
     z-index:9999;
     display:flex;
     align-items:center;
     justify-content:center;
-    animation:introHide 1s ease 1.5s forwards;
+    pointer-events:none;
+    animation:introOut 1.2s ease forwards;
+    animation-delay:1.8s;
 }
 
-.intro h1{
-    font-size:clamp(60px,12vw,150px);
-    letter-spacing:-8px;
-    font-weight:500;
-    animation:introLogo 1.4s ease;
+.intro-logo{
+    font-size:clamp(70px,15vw,220px);
+    font-weight:900;
+    letter-spacing:-10px;
+    animation:introText 1.5s ease;
 }
 
-@keyframes introLogo{
+@keyframes introText{
     from{
         opacity:0;
-        transform:scale(.9);
-        letter-spacing:-20px;
+        transform:scale(.95);
     }
     to{
         opacity:1;
         transform:scale(1);
-        letter-spacing:-8px;
     }
 }
 
-@keyframes introHide{
+@keyframes introOut{
     to{
         opacity:0;
         visibility:hidden;
-        pointer-events:none;
     }
 }
 
@@ -82,152 +81,132 @@ header{
     top:0;
     left:0;
     width:100%;
-    padding:24px 35px;
+    height:80px;
+    padding:0 4vw;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     z-index:1000;
     mix-blend-mode:difference;
 }
 
 .logo{
-    font-size:23px;
-    font-weight:600;
-    letter-spacing:-1px;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:3px;
 }
 
 nav{
     display:flex;
-    gap:35px;
+    align-items:center;
+    gap:30px;
 }
 
 nav a{
-    font-size:10px;
-    text-transform:uppercase;
+    font-size:9px;
     letter-spacing:2px;
-    position:relative;
-}
-
-nav a:after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    width:0;
-    height:1px;
-    background:white;
+    text-transform:uppercase;
     transition:.3s;
 }
 
-nav a:hover:after{
-    width:100%;
+nav a:hover{
+    opacity:.45;
+}
+
+.bag-link span{
+    opacity:.55;
+    margin-left:4px;
 }
 
 /* HERO */
 
 .hero{
     height:100vh;
-    min-height:650px;
+    min-height:700px;
     position:relative;
-    overflow:hidden;
     display:flex;
     align-items:flex-end;
-    padding:45px;
+    padding:0 4vw 7vh;
+    overflow:hidden;
 }
 
 .hero-image{
     position:absolute;
-    inset:-5%;
-    width:110%;
-    height:110%;
-    object-fit:cover;
-    filter:brightness(.48);
-    transform:scale(1.04);
-    transition:transform 1s ease;
-}
-
-.hero-overlay{
-    position:absolute;
     inset:0;
-    background:
+    background-image:
         linear-gradient(
-            to bottom,
-            rgba(0,0,0,.15),
-            rgba(0,0,0,.15) 40%,
-            rgba(0,0,0,.85)
-        );
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.7)
+        ),
+        url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=2000&q=90");
+    background-size:cover;
+    background-position:center;
+    transform:scale(1.05);
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:1100px;
+    width:100%;
 }
 
-.kicker{
-    font-size:10px;
+.hero-small{
+    font-size:9px;
     letter-spacing:4px;
     margin-bottom:25px;
     opacity:.7;
 }
 
-.hero h1{
-    font-size:clamp(60px,10vw,155px);
-    line-height:.8;
-    letter-spacing:-8px;
-    font-weight:500;
+.hero-title{
+    font-size:clamp(55px,11vw,170px);
+    line-height:.82;
+    font-weight:900;
+    letter-spacing:-7px;
+    max-width:1300px;
 }
 
-.hero-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    margin-top:45px;
-    gap:40px;
-}
-
-.hero-text{
-    max-width:350px;
-    font-size:13px;
+.hero-description{
+    margin-top:40px;
+    max-width:390px;
+    font-size:12px;
     line-height:1.7;
-    color:#bbb;
+    color:#aaa;
 }
 
 .hero-button{
-    border:1px solid rgba(255,255,255,.6);
-    padding:15px 24px;
-    font-size:10px;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-.hero-button:hover{
-    background:white;
-    color:#000;
+    display:inline-block;
+    margin-top:35px;
+    border-bottom:1px solid #fff;
+    padding-bottom:8px;
+    font-size:9px;
+    letter-spacing:3px;
 }
 
 /* MARQUEE */
 
 .marquee{
-    border-top:1px solid #222;
-    border-bottom:1px solid #222;
     overflow:hidden;
     white-space:nowrap;
-    padding:22px 0;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
 }
 
 .marquee-track{
-    display:inline-flex;
-    animation:moveText 22s linear infinite;
+    display:inline-block;
+    padding:22px 0;
+    animation:marquee 25s linear infinite;
 }
 
 .marquee span{
-    margin-right:65px;
-    font-size:12px;
+    font-size:11px;
     letter-spacing:5px;
+    margin:0 35px;
 }
 
-@keyframes moveText{
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
     to{
         transform:translateX(-50%);
     }
@@ -235,393 +214,435 @@ nav a:hover:after{
 
 /* GENERAL */
 
-.section{
-    padding:140px 45px;
+section{
+    padding:140px 4vw;
 }
 
-.section-head{
+.section-top{
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
-    margin-bottom:55px;
-}
-
-.section-title{
-    font-size:clamp(48px,7vw,105px);
-    font-weight:400;
-    letter-spacing:-6px;
+    align-items:flex-start;
+    margin-bottom:80px;
 }
 
 .section-number{
-    font-size:10px;
-    color:#777;
+    font-size:9px;
+    color:#666;
     letter-spacing:3px;
 }
 
-/* PRODUCTS */
+.section-title{
+    font-size:clamp(35px,5vw,80px);
+    font-weight:800;
+    letter-spacing:-4px;
+}
+
+/* COLLECTION */
+
+.collection{
+    background:#050505;
+}
 
 .products{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:3px;
+    gap:2px;
 }
 
 .product{
     position:relative;
-    height:650px;
-    overflow:hidden;
-    background:#181818;
     cursor:pointer;
+    overflow:hidden;
+    background:#111;
 }
 
-.product img{
-    position:absolute;
-    inset:0;
+.product-image{
     width:100%;
-    height:100%;
+    aspect-ratio:4/5;
     object-fit:cover;
-    object-position:center;
-    transition:
-        transform .8s cubic-bezier(.2,.7,.2,1),
-        filter .5s ease;
+    display:block;
+    transition:transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-.product:hover img{
-    transform:scale(1.08);
-    filter:brightness(.78);
-}
-
-.product:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.2),
-            transparent 40%,
-            rgba(0,0,0,.7)
-        );
-    pointer-events:none;
+.product:hover .product-image{
+    transform:scale(1.035);
 }
 
 .product-info{
     position:absolute;
-    inset:0;
-    z-index:2;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.product-top{
-    display:flex;
-    justify-content:space-between;
-    font-size:10px;
-    letter-spacing:2px;
-}
-
-.product-bottom{
+    left:25px;
+    right:25px;
+    bottom:25px;
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
+    z-index:2;
 }
 
 .product-name{
-    font-size:27px;
-    letter-spacing:-1px;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
 .product-code{
-    margin-top:8px;
-    font-size:9px;
-    color:#bbb;
+    font-size:8px;
+    color:#aaa;
+    margin-top:7px;
     letter-spacing:2px;
 }
 
-.explore{
-    font-size:9px;
+.product-view{
+    font-size:8px;
     letter-spacing:2px;
-    border-bottom:1px solid white;
-    padding-bottom:6px;
+    border-bottom:1px solid #fff;
+    padding-bottom:4px;
+}
+
+.product::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 55%,
+        rgba(0,0,0,.8)
+    );
+    pointer-events:none;
+}
+
+/* PRODUCT 001 */
+
+.product:nth-child(1) .product-image{
+    background:#ddd;
+}
+
+/* PRODUCT 002 */
+
+.product:nth-child(2) .product-image{
+    background:#222;
+}
+
+/* PRODUCT 003 */
+
+.product:nth-child(3) .product-image{
+    background:#eee;
+}
+
+/* PRODUCT 004 */
+
+.product:nth-child(4) .product-image{
+    background:#181818;
+}
+
+/* PRODUCT 005 */
+
+.product:nth-child(5) .product-image{
+    background:#ddd;
+}
+
+/* PRODUCT 006 */
+
+.product:nth-child(6) .product-image{
+    background:#191919;
+}
+
+/* PRODUCT 007 */
+
+.product:nth-child(7) .product-image{
+    background:#222;
+}
+
+/* PRODUCT 008 */
+
+.product:nth-child(8) .product-image{
+    background:#ddd;
 }
 
 /* BIG TYPE */
 
 .big-type{
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
     overflow:hidden;
-    padding:100px 0;
 }
 
-.big-type div{
-    font-size:clamp(90px,17vw,250px);
-    line-height:.75;
-    letter-spacing:-14px;
+.big-type-line{
+    font-size:clamp(70px,15vw,230px);
+    font-weight:900;
+    line-height:.8;
+    letter-spacing:-12px;
     white-space:nowrap;
-    color:#161616;
 }
 
-.big-type div:nth-child(2){
-    text-align:right;
-    color:#202020;
+.big-type-line:nth-child(2){
+    margin-left:12vw;
 }
 
 /* EDITORIAL */
 
 .editorial{
-    height:90vh;
-    min-height:600px;
+    min-height:100vh;
     position:relative;
-    overflow:hidden;
     display:flex;
     align-items:center;
-    justify-content:center;
 }
 
-.editorial img{
-    position:absolute;
-    width:110%;
-    height:110%;
+.editorial-image{
+    width:65%;
+    margin-left:auto;
+    aspect-ratio:4/5;
+    overflow:hidden;
+}
+
+.editorial-image img{
+    width:100%;
+    height:120%;
     object-fit:cover;
-    filter:brightness(.45);
-    transform:scale(1.08);
-    transition:transform 1.2s ease;
+    transform:translateY(-10%);
 }
 
-.editorial-overlay{
+.editorial-text{
     position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.25);
+    left:4vw;
+    bottom:12%;
+    max-width:450px;
 }
 
-.editorial-content{
-    position:relative;
-    z-index:2;
-    text-align:center;
+.editorial-label{
+    font-size:9px;
+    letter-spacing:3px;
+    color:#888;
+    margin-bottom:25px;
 }
 
-.editorial-content span{
-    font-size:10px;
-    letter-spacing:5px;
+.editorial-title{
+    font-size:clamp(45px,7vw,100px);
+    font-weight:900;
+    line-height:.85;
+    letter-spacing:-6px;
 }
 
-.editorial-content h2{
-    margin-top:25px;
-    font-size:clamp(55px,12vw,180px);
-    letter-spacing:-9px;
-    font-weight:400;
+.editorial-description{
+    font-size:11px;
+    line-height:1.8;
+    color:#999;
+    margin-top:30px;
+    max-width:300px;
 }
 
 /* PHILOSOPHY */
 
 .philosophy{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:3px;
-}
-
-.philosophy-card{
-    min-height:450px;
-    padding:30px;
-    background:#151515;
+    min-height:100vh;
     display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    align-items:center;
 }
 
-.philosophy-card small{
-    color:#777;
-    letter-spacing:2px;
+.philosophy-inner{
+    width:100%;
 }
 
-.philosophy-card h3{
-    font-size:40px;
-    font-weight:400;
-    letter-spacing:-2px;
+.philosophy-word{
+    font-size:clamp(60px,13vw,200px);
+    font-weight:900;
+    letter-spacing:-10px;
+    line-height:.8;
 }
 
-.philosophy-card p{
-    max-width:330px;
-    color:#999;
-    font-size:12px;
+.philosophy-word:nth-child(2){
+    text-align:right;
+}
+
+.philosophy-word:nth-child(3){
+    margin-left:12vw;
+}
+
+.philosophy-copy{
+    max-width:360px;
+    margin:70px auto 0;
+    text-align:center;
+    color:#888;
+    font-size:11px;
     line-height:1.8;
 }
 
 /* LOOKBOOK */
 
 .lookbook{
+    background:#0b0b0b;
+}
+
+.lookbook-grid{
     display:grid;
-    grid-template-columns:1.5fr 1fr;
-    gap:3px;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
 }
 
 .look{
-    position:relative;
     overflow:hidden;
-    min-height:600px;
-    background:#151515;
+    position:relative;
 }
 
 .look img{
     width:100%;
-    height:100%;
-    position:absolute;
-    inset:0;
+    aspect-ratio:3/4;
     object-fit:cover;
+    display:block;
     transition:transform 1s ease;
-    filter:brightness(.65);
 }
 
 .look:hover img{
-    transform:scale(1.06);
+    transform:scale(1.04);
 }
 
-.look-side{
-    display:grid;
-    grid-template-rows:1fr 1fr;
-    gap:3px;
-}
-
-.look-side .look{
-    min-height:298px;
-}
-
-.look-info{
+.look-number{
     position:absolute;
-    inset:0;
-    z-index:2;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.look-info span{
+    top:20px;
+    left:20px;
     font-size:9px;
-    letter-spacing:3px;
+    letter-spacing:2px;
 }
 
 /* ARCHIVE */
 
 .archive{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:3px;
+    border-top:1px solid #222;
+}
+
+.archive-list{
+    border-top:1px solid #222;
 }
 
 .archive-item{
-    height:430px;
-    overflow:hidden;
-    position:relative;
-    background:#151515;
+    display:grid;
+    grid-template-columns:100px 1fr auto;
+    gap:30px;
+    padding:30px 0;
+    border-bottom:1px solid #222;
+    align-items:center;
 }
 
-.archive-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:grayscale(100%);
-    transition:.8s;
-}
-
-.archive-item:hover img{
-    transform:scale(1.06);
-    filter:grayscale(20%);
-}
-
-.archive-item span{
-    position:absolute;
-    left:20px;
-    bottom:20px;
-    z-index:2;
+.archive-number{
+    color:#666;
     font-size:9px;
     letter-spacing:2px;
+}
+
+.archive-title{
+    font-size:clamp(25px,4vw,55px);
+    font-weight:700;
+    letter-spacing:-2px;
+}
+
+.archive-arrow{
+    font-size:18px;
 }
 
 /* ABOUT */
 
 .about{
-    min-height:75vh;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:100px;
-    align-items:center;
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
-.about h2{
-    margin-top:20px;
-    font-size:clamp(55px,8vw,120px);
-    line-height:.82;
-    letter-spacing:-7px;
-    font-weight:400;
+.about-title{
+    font-size:clamp(60px,12vw,190px);
+    font-weight:900;
+    line-height:.78;
+    letter-spacing:-10px;
+}
+
+.about-title span{
+    display:block;
+}
+
+.about-title span:nth-child(2){
+    margin-left:13vw;
+}
+
+.about-title span:nth-child(3){
+    margin-left:25vw;
 }
 
 .about-copy{
     max-width:450px;
-}
-
-.about-copy p{
-    color:#aaa;
-    font-size:13px;
-    line-height:2;
-    margin-bottom:30px;
+    margin:80px 0 0 auto;
+    font-size:12px;
+    line-height:1.9;
+    color:#999;
 }
 
 /* ADORNARE */
 
 .adornare{
-    background:#efede7;
-    color:#111;
-    padding:160px 45px;
-}
-
-.adornare-inner{
-    max-width:1200px;
-    margin:auto;
+    padding:100px 4vw;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .adornare-label{
-    font-size:10px;
-    letter-spacing:4px;
-    margin-bottom:35px;
+    font-size:9px;
+    letter-spacing:3px;
+    color:#666;
 }
 
-.adornare h2{
-    font-size:clamp(60px,10vw,150px);
-    line-height:.82;
-    letter-spacing:-8px;
-    font-weight:400;
-}
-
-.adornare p{
-    max-width:420px;
-    margin:45px 0;
-    color:#555;
-    font-size:13px;
-    line-height:1.8;
+.adornare-title{
+    font-size:clamp(40px,7vw,100px);
+    font-weight:900;
+    letter-spacing:-5px;
 }
 
 .adornare-link{
-    display:inline-block;
-    border-bottom:1px solid #111;
-    padding-bottom:8px;
-    font-size:10px;
+    font-size:9px;
     letter-spacing:3px;
+    border-bottom:1px solid #fff;
+    padding-bottom:8px;
 }
 
 /* FOOTER */
 
 footer{
-    border-top:1px solid #222;
-    padding:30px 45px;
-    display:flex;
-    justify-content:space-between;
+    padding:80px 4vw 35px;
 }
 
-footer span{
-    font-size:9px;
-    color:#777;
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.footer-logo{
+    font-size:clamp(60px,12vw,180px);
+    font-weight:900;
+    letter-spacing:-10px;
+    line-height:.7;
+}
+
+.footer-links{
+    display:flex;
+    gap:30px;
+}
+
+.footer-links a{
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.footer-bottom{
+    margin-top:120px;
+    padding-top:20px;
+    border-top:1px solid #222;
+    display:flex;
+    justify-content:space-between;
+    font-size:8px;
+    color:#555;
     letter-spacing:2px;
 }
 
@@ -630,39 +651,47 @@ footer span{
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.94);
-    z-index:9000;
-    display:none;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(15px);
+    z-index:5000;
+    display:flex;
     align-items:center;
     justify-content:center;
     padding:30px;
+    opacity:0;
+    visibility:hidden;
+    transition:.4s;
 }
 
 .modal.active{
-    display:flex;
+    opacity:1;
+    visibility:visible;
 }
 
 .modal-box{
     width:min(1100px,100%);
     max-height:90vh;
+    background:#101010;
     display:grid;
     grid-template-columns:1fr 1fr;
-    background:#151515;
-    overflow:hidden;
+    overflow:auto;
+    transform:translateY(30px);
+    transition:.5s;
+}
+
+.modal.active .modal-box{
+    transform:translateY(0);
 }
 
 .modal-image{
-    min-height:600px;
-}
-
-.modal-image img{
     width:100%;
     height:100%;
+    min-height:600px;
     object-fit:cover;
 }
 
 .modal-content{
-    padding:45px;
+    padding:55px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -672,1186 +701,242 @@ footer span{
     align-self:flex-end;
     border:0;
     background:none;
-    color:white;
-    cursor:pointer;
-    font-size:10px;
+    color:#fff;
+    font-size:9px;
     letter-spacing:2px;
+    cursor:pointer;
 }
 
 .modal-code{
     color:#777;
-    font-size:10px;
+    font-size:9px;
     letter-spacing:3px;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .modal-title{
-    font-size:clamp(40px,5vw,70px);
+    font-size:clamp(35px,5vw,70px);
     line-height:.9;
     letter-spacing:-4px;
-    font-weight:400;
 }
 
 .modal-description{
-    color:#999;
-    font-size:13px;
+    color:#888;
+    font-size:11px;
     line-height:1.8;
-    max-width:400px;
+    max-width:380px;
+    margin-top:30px;
 }
 
-/* MOBILE */
+/* PRODUCT DETAIL ENHANCEMENTS */
 
-@media(max-width:700px){
-
-    header{
-        padding:20px;
-    }
-
-    nav{
-        gap:13px;
-    }
-
-    nav a{
-        font-size:8px;
-        letter-spacing:1px;
-    }
-
-    .hero{
-        padding:25px;
-        min-height:650px;
-    }
-
-    .hero h1{
-        font-size:17vw;
-        letter-spacing:-5px;
-    }
-
-    .hero-bottom{
-        display:block;
-    }
-
-    .hero-text{
-        margin-bottom:25px;
-    }
-
-    .section{
-        padding:90px 20px;
-    }
-
-    .section-title{
-        font-size:48px;
-        letter-spacing:-4px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .product{
-        height:530px;
-    }
-
-    .big-type div{
-        font-size:27vw;
-        letter-spacing:-7px;
-    }
-
-    .editorial{
-        height:70vh;
-    }
-
-    .editorial-content h2{
-        font-size:18vw;
-        letter-spacing:-5px;
-    }
-
-    .philosophy{
-        grid-template-columns:1fr;
-    }
-
-    .lookbook{
-        grid-template-columns:1fr;
-    }
-
-    .look{
-        min-height:500px;
-    }
-
-    .look-side{
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:none;
-    }
-
-    .look-side .look{
-        min-height:350px;
-    }
-
-    .archive{
-        grid-template-columns:1fr;
-    }
-
-    .archive-item{
-        height:380px;
-    }
-
-    .about{
-        grid-template-columns:1fr;
-        gap:50px;
-    }
-
-    .about h2{
-        font-size:68px;
-        letter-spacing:-5px;
-    }
-
-    .adornare{
-        padding:100px 25px;
-    }
-
-    .adornare h2{
-        font-size:18vw;
-        letter-spacing:-5px;
-    }
-
-    footer{
-        padding:25px 20px;
-        flex-direction:column;
-        gap:12px;
-    }
-
-    .modal{
-        padding:12px;
-    }
-
-    .modal-box{
-        grid-template-columns:1fr;
-        max-height:95vh;
-        overflow:auto;
-    }
-
-    .modal-image{
-        min-height:320px;
-        height:45vh;
-    }
-
-    .modal-content{
-        padding:25px;
-        min-height:330px;
-    }
+.modal-price{
+    margin-top:24px;
+    font-size:22px;
+    letter-spacing:-1px;
 }
-</style>
-</head>
 
-<body>
+.modal-meta{
+    margin-top:28px;
+    display:grid;
+    gap:18px;
+}
+
+.modal-label{
+    display:block;
+    margin-bottom:10px;
+    font-size:9px;
+    color:#777;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
 
-<!-- INTRO -->
+.size-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:4px;
+}
 
-<div class="intro">
-    <h1>FONEX</h1>
-</div>
+.size-btn{
+    border:1px solid #333;
+    background:transparent;
+    color:#fff;
+    padding:13px 8px;
+    font-size:10px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.25s;
+}
 
+.size-btn:hover,
+.size-btn.active{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
+}
 
-<!-- HEADER -->
+.add-bag{
+    width:100%;
+    margin-top:26px;
+    border:1px solid #fff;
+    background:#fff;
+    color:#000;
+    padding:17px 20px;
+    font-size:10px;
+    letter-spacing:3px;
+    cursor:pointer;
+    transition:.3s;
+}
 
-<header>
+.add-bag:hover{
+    background:transparent;
+    color:#fff;
+}
 
-    <a href="#" class="logo">FONEX</a>
+.add-bag.added{
+    background:#222;
+    color:#fff;
+    border-color:#444;
+}
 
-    <nav>
-        <a href="#collection">Koleksiyon</a>
-        <a href="#lookbook">Lookbook</a>
-        <a href="#about">Hakkımızda</a>
-    </nav>
+.modal-status{
+    margin-top:12px;
+    min-height:14px;
+    font-size:9px;
+    color:#777;
+    letter-spacing:1px;
+}
+            setTimeout(() => {
 
-</header>
+                addBag.textContent =
+                    "ADD TO BAG";
 
+                addBag.classList.remove("added");
 
-<!-- HERO -->
+            }, 1800);
 
-<section class="hero">
+        });
 
-    <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=90"
-        alt="FONEX editorial fashion"
-        onerror="this.style.display='none'"
-    >
+    });
 
-    <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+    /* CLOSE MODAL */
 
-        <div class="kicker">
-            FONEX / 2026
-        </div>
+    const closeButton =
+        document.getElementById("close");
 
-        <h1>
-            KENDİ<br>
-            FORMUNU<br>
-            YARAT.
-        </h1>
+    closeButton.addEventListener("click", () => {
 
-        <div class="hero-bottom">
+        modal.classList.remove("active");
 
-            <p class="hero-text">
-                Sade. Keskin. Zamansız.
-                FONEX, form ve kimlik arasındaki
-                sınırı yeniden yorumlar.
-            </p>
+        document.body.style.overflow = "";
 
-            <a href="#collection" class="hero-button">
-                KOLEKSİYONU GÖR ↘
-            </a>
+    });
 
-        </div>
 
-    </div>
+    modal.addEventListener("click", e => {
 
-</section>
+        if(e.target === modal){
 
+            modal.classList.remove("active");
 
-<!-- MARQUEE -->
+            document.body.style.overflow = "";
 
-<div class="marquee">
+        }
 
-    <div class="marquee-track">
+    });
 
-        <span>FONEX</span>
-        <span>FORM</span>
-        <span>IDENTITY</span>
-        <span>STRUCTURE</span>
-        <span>FONEX</span>
-        <span>FORM</span>
-        <span>IDENTITY</span>
-        <span>STRUCTURE</span>
-        <span>FONEX</span>
-        <span>FORM</span>
-        <span>IDENTITY</span>
-        <span>STRUCTURE</span>
 
-    </div>
+    document.addEventListener("keydown", e => {
 
-</div>
+        if(e.key === "Escape"){
 
+            modal.classList.remove("active");
 
-<!-- COLLECTION -->
+            document.body.style.overflow = "";
 
-<section class="section" id="collection">
+        }
 
-    <div class="section-head">
+    });
 
-        <h2 class="section-title">
-            KOLEKSİYON
-        </h2>
 
-        <span class="section-number">
-            001 — 008
-        </span>
+    /* BAG COUNT */
 
-    </div>
+    function updateBagCount(){
 
+        const cart =
+            JSON.parse(
+                localStorage.getItem("fonexCart") || "[]"
+            );
 
-    <div class="products">
+        const count =
+            document.getElementById("bagCount");
 
+        if(count){
 
-        <article
-            class="product"
-            data-title="OVERSIZE CEKET"
-            data-code="FNX / 001"
-            data-description="Keskin omuz hattı ve rahat silüeti bir araya getiren FONEX oversize ceket."
-        >
+            count.textContent =
+                cart.length;
 
-            <img
-                src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85"
-                alt="Oversize Ceket"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 001</span>
-                    <span>01</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Oversize Ceket
-                        </div>
-
-                        <div class="product-code">
-                            STRUCTURE / 01
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="DERİ CEKET"
-            data-code="FNX / 002"
-            data-description="Minimal yüzey, güçlü silüet ve zamansız bir dış katman."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
-                alt="Deri Ceket"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 002</span>
-                    <span>02</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Deri Ceket
-                        </div>
-
-                        <div class="product-code">
-                            FORM / 02
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="YAPILI GÖMLEK"
-            data-code="FNX / 003"
-            data-description="Klasik gömlek formunun daha geometrik ve modern yorumu."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=1200&q=85"
-                alt="Yapılı Gömlek"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 003</span>
-                    <span>03</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Yapılı Gömlek
-                        </div>
-
-                        <div class="product-code">
-                            FORM / 03
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="ESSENTIAL SWEATSHIRT"
-            data-code="FNX / 004"
-            data-description="Günlük kullanım için sadeleştirilmiş, temiz ve dengeli bir silüet."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=1200&q=85"
-                alt="Essential Sweatshirt"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 004</span>
-                    <span>04</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Essential Sweatshirt
-                        </div>
-
-                        <div class="product-code">
-                            IDENTITY / 04
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="MİNİMAL TİŞÖRT"
-            data-code="FNX / 005"
-            data-description="Gereksiz detaylardan arındırılmış temel parça."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85"
-                alt="Minimal Tişört"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 005</span>
-                    <span>05</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Minimal Tişört
-                        </div>
-
-                        <div class="product-code">
-                            ESSENTIAL / 05
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="GENİŞ KESİM PANTOLON"
-            data-code="FNX / 006"
-            data-description="Akışkan kumaş yapısı ve geniş kesimiyle hareket odaklı tasarım."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1200&q=85"
-                alt="Geniş Kesim Pantolon"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 006</span>
-                    <span>06</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Geniş Kesim Pantolon
-                        </div>
-
-                        <div class="product-code">
-                            FORM / 06
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="UTILITY MONT"
-            data-code="FNX / 007"
-            data-description="Fonksiyonel detayları sade bir dış görünüşle birleştiren mont."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=1200&q=85"
-                alt="Utility Mont"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 007</span>
-                    <span>07</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Utility Mont
-                        </div>
-
-                        <div class="product-code">
-                            STRUCTURE / 07
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article
-            class="product"
-            data-title="URBAN OVERSHIRT"
-            data-code="FNX / 008"
-            data-description="Gömlek ve ceket arasındaki çizgide duran çok yönlü şehir katmanı."
-        >
-
-            <img
-                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85"
-                alt="Urban Overshirt"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <div class="product-top">
-                    <span>FNX / 008</span>
-                    <span>08</span>
-                </div>
-
-                <div class="product-bottom">
-
-                    <div>
-                        <div class="product-name">
-                            Urban Overshirt
-                        </div>
-
-                        <div class="product-code">
-                            IDENTITY / 08
-                        </div>
-                    </div>
-
-                    <div class="explore">
-                        İNCELE ↗
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- BIG TYPE -->
-
-<section class="big-type">
-
-    <div>FORM</div>
-    <div>IDENTITY</div>
-
-</section>
-
-
-<!-- EDITORIAL -->
-
-<section class="editorial">
-
-    <img
-        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2200&q=90"
-        alt="FONEX Editorial"
-        onerror="this.style.display='none'"
-    >
-
-    <div class="editorial-overlay"></div>
-
-    <div class="editorial-content">
-
-        <span>FONEX / EDITORIAL</span>
-
-        <h2>STRUCTURE</h2>
-
-    </div>
-
-</section>
-
-
-<!-- PHILOSOPHY -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            PHILOSOPHY
-        </h2>
-
-        <span class="section-number">
-            002
-        </span>
-
-    </div>
-
-    <div class="philosophy">
-
-        <div class="philosophy-card">
-
-            <small>01 / FORM</small>
-
-            <h3>FORM</h3>
-
-            <p>
-                Silüeti belirleyen çizgiler,
-                oranlar ve hacimler.
-                FONEX tasarımının başlangıç noktası.
-            </p>
-
-        </div>
-
-        <div class="philosophy-card">
-
-            <small>02 / IDENTITY</small>
-
-            <h3>IDENTITY</h3>
-
-            <p>
-                Bir kıyafetin yalnızca ne olduğu değil,
-                onu giyen kişinin nasıl yorumladığı.
-            </p>
-
-        </div>
-
-        <div class="philosophy-card">
-
-            <small>03 / STRUCTURE</small>
-
-            <h3>STRUCTURE</h3>
-
-            <p>
-                Minimal detayların oluşturduğu
-                güçlü ve dengeli bütünlük.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LOOKBOOK -->
-
-<section class="section" id="lookbook">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            LOOKBOOK
-        </h2>
-
-        <span class="section-number">
-            003
-        </span>
-
-    </div>
-
-    <div class="lookbook">
-
-        <div class="look">
-
-            <img
-                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1500&q=85"
-                alt="Lookbook 01"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="look-info">
-
-                <span>LOOK / 01</span>
-                <span>MONOCHROME</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="look-side">
-
-            <div class="look">
-
-                <img
-                    src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=85"
-                    alt="Lookbook 02"
-                    onerror="this.style.display='none'"
-                >
-
-                <div class="look-info">
-
-                    <span>LOOK / 02</span>
-                    <span>STRUCTURE</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="look">
-
-                <img
-                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85"
-                    alt="Lookbook 03"
-                    onerror="this.style.display='none'"
-                >
-
-                <div class="look-info">
-
-                    <span>LOOK / 03</span>
-                    <span>FORM</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ARCHIVE -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            ARCHIVE
-        </h2>
-
-        <span class="section-number">
-            004
-        </span>
-
-    </div>
-
-    <div class="archive">
-
-        <div class="archive-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85"
-                alt="FONEX Archive 01"
-                onerror="this.style.display='none'"
-            >
-
-            <span>ARCHIVE / 001</span>
-
-        </div>
-
-        <div class="archive-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85"
-                alt="FONEX Archive 02"
-                onerror="this.style.display='none'"
-            >
-
-            <span>ARCHIVE / 002</span>
-
-        </div>
-
-        <div class="archive-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
-                alt="FONEX Archive 03"
-                onerror="this.style.display='none'"
-            >
-
-            <span>ARCHIVE / 003</span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="section about" id="about">
-
-    <div>
-
-        <div class="section-number">
-            005 / ABOUT
-        </div>
-
-        <h2>
-            LESS<br>
-            NOISE.<br>
-            MORE<br>
-            FORM.
-        </h2>
-
-    </div>
-
-    <div class="about-copy">
-
-        <p>
-            FONEX, modern giyimin temelini oluşturan
-            form, oran ve kimlik kavramları üzerine
-            kurulu bağımsız bir moda projesidir.
-        </p>
-
-        <p>
-            Trendleri takip etmek yerine,
-            uzun süre kullanılabilecek güçlü ve
-            sade görsel kimlikler oluşturmayı amaçlar.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- ADORNARE -->
-
-<section class="adornare">
-
-    <div class="adornare-inner">
-
-        <div class="adornare-label">
-            FONEX × ADORNARE
-        </div>
-
-        <h2>
-            WEAR<br>
-            THE FORM.<br>
-            LEAVE<br>
-            THE SCENT.
-        </h2>
-
-        <p>
-            FONEX'in görsel dünyası ile
-            Adornare'nin koku dünyasının
-            kesiştiği alanı keşfet.
-        </p>
-
-        <a
-            class="adornare-link"
-            href="https://adornareparfum.adornareparfum.workers.dev"
-            target="_blank"
-        >
-            DISCOVER ADORNARE ↗
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <span>FONEX © 2026</span>
-
-    <span>FORM / IDENTITY / STRUCTURE</span>
-
-</footer>
-
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <div class="modal-image">
-
-            <img id="modalImg" src="" alt="FONEX product">
-
-        </div>
-
-        <div class="modal-content">
-
-            <button class="close" id="close">
-                CLOSE ×
-            </button>
-
-            <div>
-
-                <div class="modal-code" id="modalCode">
-                    FNX / 001
-                </div>
-
-                <h2 class="modal-title" id="modalTitle">
-                    OVERSIZE CEKET
-                </h2>
-
-            </div>
-
-            <p class="modal-description" id="modalDescription">
-                Ürün açıklaması.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* HERO PARALLAX */
-
-const heroImage = document.querySelector(".hero-image");
-
-window.addEventListener("scroll", () => {
-
-    if(heroImage && window.scrollY < window.innerHeight){
-
-        heroImage.style.transform =
-            `scale(1.04) translateY(${window.scrollY * .12}px)`;
+        }
 
     }
 
-});
+    updateBagCount();
 
 
-/* EDITORIAL PARALLAX */
+    /* LOOKBOOK PARALLAX */
 
-const editorialImage =
-    document.querySelector(".editorial img");
+    const looks =
+        document.querySelectorAll(".look img");
 
-window.addEventListener("scroll", () => {
-
-    if(!editorialImage) return;
-
-    const section =
-        document.querySelector(".editorial");
-
-    const rect =
-        section.getBoundingClientRect();
-
-    const movement =
-        (window.innerHeight / 2 - rect.top) * .06;
-
-    editorialImage.style.transform =
-        `scale(1.08) translateY(${movement}px)`;
-
-});
-
-
-/* PRODUCT MOUSE MOVEMENT */
-
-document.querySelectorAll(".product").forEach(product => {
-
-    const image = product.querySelector("img");
-
-    product.addEventListener("mousemove", e => {
+    window.addEventListener("scroll", () => {
 
         if(window.innerWidth <= 700) return;
 
-        const rect =
-            product.getBoundingClientRect();
+        looks.forEach(img => {
 
-        const x =
-            (e.clientX - rect.left) / rect.width - .5;
+            const rect =
+                img.getBoundingClientRect();
 
-        const y =
-            (e.clientY - rect.top) / rect.height - .5;
+            const movement =
+                (window.innerHeight / 2 - rect.top) * .025;
 
-        image.style.transform =
-            `scale(1.08) translate(${x * 16}px, ${y * 16}px)`;
+            img.style.transform =
+                `scale(1.05) translateY(${movement}px)`;
 
-    });
-
-    product.addEventListener("mouseleave", () => {
-
-        image.style.transform = "";
+        });
 
     });
 
-});
 
+    /* SMOOTH NAVIGATION */
 
-/* PRODUCT MODAL */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-const modal =
-    document.getElementById("modal");
+        link.addEventListener("click", e => {
 
-const modalImg =
-    document.getElementById("modalImg");
+            const target =
+                document.querySelector(
+                    link.getAttribute("href")
+                );
 
-const modalTitle =
-    document.getElementById("modalTitle");
+            if(target){
 
-const modalCode =
-    document.getElementById("modalCode");
+                e.preventDefault();
 
-const modalDescription =
-    document.getElementById("modalDescription");
+                target.scrollIntoView({
+                    behavior:"smooth"
+                });
 
-document.querySelectorAll(".product").forEach(product => {
+            }
 
-    product.addEventListener("click", () => {
-
-        const image =
-            product.querySelector("img");
-
-        modalImg.src = image.src;
-
-        modalTitle.textContent =
-            product.dataset.title;
-
-        modalCode.textContent =
-            product.dataset.code;
-
-        modalDescription.textContent =
-            product.dataset.description;
-
-        modal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
+        });
 
     });
 
-});
-
-
-/* CLOSE MODAL */
-
-function closeModal(){
-
-    modal.classList.remove("active");
-
-    document.body.style.overflow = "";
-
-}
-
-document
-    .getElementById("close")
-    .addEventListener("click", closeModal);
-
-modal.addEventListener("click", e => {
-
-    if(e.target === modal){
-
-        closeModal();
-
-    }
-
-});
-
-document.addEventListener("keydown", e => {
-
-    if(e.key === "Escape"){
-
-        closeModal();
-
-    }
-
-});
-
-
-/* LOOKBOOK PARALLAX */
-
-document.querySelectorAll(".look").forEach(look => {
-
-    const image =
-        look.querySelector("img");
-
-    look.addEventListener("mousemove", e => {
-
-        if(window.innerWidth <= 700) return;
-
-        const rect =
-            look.getBoundingClientRect();
-
-        const x =
-            (e.clientX - rect.left) / rect.width - .5;
-
-        const y =
-            (e.clientY - rect.top) / rect.height - .5;
-
-        image.style.transform =
-            `scale(1.06) translate(${x * 12}px,${y * 12}px)`;
-
-    });
-
-    look.addEventListener("mouseleave", () => {
-
-        image.style.transform = "";
-
-    });
-
-});
 
 </script>
 
 </body>
+
 </html>
